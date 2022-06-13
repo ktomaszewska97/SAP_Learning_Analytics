@@ -1,0 +1,113 @@
+/*@@layout{"layoutInfo":{"x":-624.208984375,"y":-165}}*/
+context myModel {
+
+
+    /*@@layout{"layoutInfo":{"x":-488,"y":-284.5}}*/
+    entity Litmos {
+            user_name                  : String(50);
+            user_surname               : String(50);
+            user_role                  : String(50);
+            user_joined_date           : UTCDateTime;
+            user_external_id           : String(200);
+            user_is_deactivated        : Boolean;
+            num_new_enrolled           : Integer;
+            num_new_started            : Integer;
+            num_new_completed_courses  : Integer;
+            num_new_completed_quizzes  : Integer;
+            num_new_completed_lectures : Integer;
+            num_video_consumed_minutes : Decimal(10, 2);
+            num_web_visited_days       : Integer;
+            last_date_visit            : UTCDateTime;
+        key email_address              : String(100);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-488,"y":74.5}}*/
+    entity Udemy {
+            user_name                  : String(50);
+            user_surname               : String(50);
+            user_role                  : String(50);
+            user_joined_date           : UTCDateTime;
+            user_external_id           : String(200);
+            user_is_deactivated        : Boolean;
+            num_new_enrolled           : Integer;
+            num_new_stared             : Integer;
+            num_new_completed_courses  : Integer;
+            num_new_completed_quizzes  : Integer;
+            num_new_completed_lectures : Integer;
+            num_video_consumed_minutes : Decimal(10, 2);
+            num_web_visited_days       : Integer;
+            last_date_visit            : UTCDateTime;
+        key email_address              : String(100);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-94,"y":-339.5,"external":[{"id":"Litmos","sourceName":"Litmos_User","x":-109.068359375,"y":-165},{"id":"Udemy","sourceName":"Udemy_User"}]}}*/
+    entity User {
+            last_name        : String(150);
+        key email_address    : String(100);
+            country          : String(50);
+            password         : String(200);
+            bearer_token     : String(200);
+            title            : String(50);
+            description      : String(500);
+            departament      : String(50);
+            course_assigned  : Integer;
+            course_completed : Integer;
+            LP_assigned      : Integer;
+            LP_completed     : Integer;
+            hours_spent      : Integer;
+            User_Litmos      : association[1, 0..1] to myModel.Litmos;
+            User_Udemy       : association[1, 0..1] to myModel.Udemy;
+    };
+
+    /*@@layout{"layoutInfo":{"x":472,"y":-332.5}}*/
+    entity Learning_path {
+        key learning_path_id         : String(200);
+            path_title               : String(50);
+            path_description         : String(500);
+            editors                  : String(200);
+            path_created_time        : UTCDateTime;
+            path_last_modified       : UTCDateTime;
+            estimated_content_length : Integer;
+            number_of_content_items  : Integer;
+            is_pro_path              : Boolean;
+            path_locales             : String(200);
+            path_categories          : String(200);
+            path_folders             : String(200);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-87,"y":278.5}}*/
+    entity Course {
+        key course_id                    : String(200);
+            course_start_time            : UTCDateTime;
+            course_completion_time       : UTCDateTime;
+            course_category              : String(50);
+            course_duration              : Decimal(10, 2);
+            completion_ratio             : Decimal(10, 2);
+            course_enroll_date           : UTCDateTime;
+            course_first_completion_date : UTCDateTime;
+            course_last_completion_date  : UTCDateTime;
+            is_assigned                  : Boolean;
+            assigned_by                  : String(50);
+    };
+
+    /*@@layout{"layoutInfo":{"x":-87,"y":93.5,"external":[{"id":"User","sourceName":"User_User_Course"},{"id":"Course","sourceName":"Course_User_Course","x":363.453125,"y":-165}]}}*/
+    entity User_Course {
+        key User_course_id     : String(200);
+            User_User_Course   : association[1, 0..1] to myModel.User;
+            Course_User_Course : association[0..1]    to myModel.Course;
+    };
+
+    /*@@layout{"layoutInfo":{"x":191,"y":-64.5}}*/
+    entity User_Learning_path {
+        key User_Learning_path_id            : String(200);
+            User_User_Learning_path          : association[1, 0..1] to myModel.User;
+            Learning_path_User_Learning_path : association[1, 0..1] to myModel.Learning_path;
+    };
+
+    /*@@layout{"layoutInfo":{"x":523,"y":257.5}}*/
+    entity Course_Learning_path {
+        key Course_Learning_path_id            : String(200);
+            Course_Course_Learning_path        : association[1, 0..1] to myModel.Course;
+            Learning_path_Course_Learning_path : association[1, 0..1] to myModel.Learning_path;
+    };
+};
