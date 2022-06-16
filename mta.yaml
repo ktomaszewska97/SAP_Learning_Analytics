@@ -14,6 +14,11 @@ modules:
     requires:
      - name: hdi_db
 
+
+  - name: Test
+    type: html5
+    path: Test
+
 resources:
   - name: UUA-service
     type: com.sap.xs.uaa-space
