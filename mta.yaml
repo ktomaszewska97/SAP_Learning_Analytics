@@ -7,22 +7,59 @@ modules:
     path: web
     requires:
       - name: UUA-service
-
+      - name: core_xsjs_api
+        group: destinations
+        properties:
+          name: core-xsjs-backend
+          url: '~{url}'
+          forwardAuthToken: true
+      - name: core_node_api
+        group: destinations
+        properties:
+          name: core-backend
+          url: '~{url}'
+          forwardAuthToken: true
   - name: db
     type: hdb
     path: db
     requires:
-     - name: hdi_db
-
+      - name: hdi_db
+  - name: core_xsjs
+    type: nodejs
+    path: core_xsjs
+    provides:
+      - name: core_xsjs_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: UUA-service
+      - name: hdi_db
+      - name: db
+  - name: core_node
+    type: nodejs
+    path: core_node
+    provides:
+      - name: core_node_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: UUA-service
+      - name: hdi_db
+      - name: db
+  - name: di-local-npm-registry
+    type: foo
+    provides:
+      - name: local-npm-repository
+    properties:
+      UPSTREAM_LINK: "https://registry.npmjs.org/"
+      SAPUPSTREAM_LINK: "https://registry.npmjs.org/"
 resources:
   - name: UUA-service
     type: com.sap.xs.uaa-space
-
   - name: hdi_db
     parameters:
-       config:
-          schema: DB
+      config:
+        schema: DB
     properties:
-       hdi-container-name: ${service-name}
+      hdi-container-name: '${service-name}'
     type: com.sap.xs.hdi-container
-

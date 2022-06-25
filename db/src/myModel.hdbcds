@@ -110,4 +110,4 @@ context myModel {
             Course_Course_Learning_path        : association[1, 0..1] to myModel.Course;
             Learning_path_Course_Learning_path : association[1, 0..1] to myModel.Learning_path;
     };
-};
+}; 
