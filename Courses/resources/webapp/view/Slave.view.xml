@@ -1,0 +1,18 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  controllerName="courses.Courses.controller.Slave">
+  <App id="app">
+  <Page title="Slave view"
+  showNavButton="true"
+  navButtonPress="onBack">
+  <content>
+  <VBox>
+  <Label text="Welcome on the second view !" />
+  <Button text="Navigate back to the first view" press="onBack" />
+  </VBox>
+  </content>
+  </Page>
+  </App>
+</mvc:View>

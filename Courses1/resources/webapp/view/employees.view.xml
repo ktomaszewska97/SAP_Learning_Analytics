@@ -1,0 +1,164 @@
+<mvc:View controllerName="test.Courses1.controller.employees"
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns:fb="sap.ui.comp.filterbar"
+xmlns:l="sap.ui.layout"
+xmlns:f="sap.ui.layout.form"
+xmlns:core="sap.ui.core"
+displayBlock="true" 
+xmlns="sap.m">
+	
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<!--navigation bar-->
+				<Page id="employees" title="TEST" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer"
+		showNavButton="true">
+					<!--menu button-->
+					<headerContent>
+						<MenuButton text="Menu">
+							<menu>
+								<Menu>
+									<MenuItem text="Dashboard"></MenuItem>
+									<MenuItem text="Learning History"  />
+									<MenuItem text="People Overview"/>
+									<MenuItem text="Courses Overview"/>
+								</Menu>
+							</menu>
+						</MenuButton>
+					</headerContent>
+					
+					
+					
+					<content>
+					<!--subtitle-->
+				
+					
+					
+					<!--filter apply	-->
+					<l:VerticalLayout width="100%">
+						<!--<Label text="Filters"/>-->
+						<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true" title="Filters:">
+							<fb:filterGroupItems>
+								
+								<!--company selection-->
+								<fb:FilterGroupItem groupName="__$INTERNAL$" name="LP" label="Learning Platform" visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="udemy" text="Udemyy"/>
+												<core:Item key="litmos" text="SAP Litmos"/>
+												
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								
+								<!--Business Unit-->
+								<fb:FilterGroupItem groupName="__$INTERNAL$" name="cc" label="Course Category" visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="marketing" text="Marketing"/>
+												<core:Item key="hr" text="Soft Skills"/>
+												<core:Item key="it" text="IT"/>
+											</items>
+										</ComboBox>
+									
+								    </fb:control>
+								</fb:FilterGroupItem>
+								
+	
+								<!--team selection-->
+								<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="rating" label="Rating" visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="t1" text=">4,5"/>
+												<core:Item key="t2" text=">4"/>
+												<core:Item key="t3" text=">3,5"/>
+											</items>
+										</ComboBox>
+					                </fb:control>
+				                </fb:FilterGroupItem>
+				                
+				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="level" label="Level" visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="t1" text="Beginner"/>
+												<core:Item key="t2" text="Intermediate"/>
+												<core:Item key="t1" text="Expert"/>
+											</items>
+										</ComboBox>
+					                </fb:control>
+				                </fb:FilterGroupItem>
+				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="compliance" label="Compliance" visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="t1" text="yes"/>
+												<core:Item key="t2" text="no"/>
+											</items>
+										</ComboBox>
+					                </fb:control>
+				                </fb:FilterGroupItem>
+				                <!--date-->
+				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="date" label="Date Range" visibleInFilterBar="true">
+									<fb:control>
+										<!--date range selection-->
+									<Label labelFor="DRS2"/>
+							            <DateRangeSelection id="date" change="handleChange"/>
+					                </fb:control>
+				                </fb:FilterGroupItem>
+								
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+						
+					</l:VerticalLayout>
+				    <Toolbar>
+					<Title level="H3" text="Table of Courses:" />
+					<ToolbarSpacer />
+				    </Toolbar>
+				    <SearchField width="95%" class="sapUiSmallMargin" />
+						<Table id="coursesTable"
+							items="{/ProductCollection}"
+							>
+								<columns>
+									<Column id="courseName" width="25%"><Text text="Course" /></Column>
+									<Column id="courseCateg" width="25%" demandPopin="true"><Text text="Course Category" /></Column>
+									<Column id="numbPart" width="10%" demandPopin="true"><Text text="Number of Participants" /></Column>
+									<Column id="avgHours" width="10%" demandPopin="true"><Text text="Average hours spent" /></Column>
+									<Column id="rating" width="10%" demandPopin="true"><Text text="Rating" /></Column>
+									<Column id="avgProg" width="10%" demandPopin="true"><Text text="Average Progress" /></Column>
+								    <Column id="avgExamRate" width="10%" demandPopin="true"><Text text="Average Exam Rate" /></Column>
+								</columns>
+								<items>
+									<ColumnListItem
+									type="Active"
+									vAlign="Middle"
+									navigated="{
+									parts: [
+									'settings>/navigatedItem',
+									'ProductId'
+									],
+									formatter: '.isNavigated'
+									}"
+									press="onPress">
+										<cells>
+											<ObjectIdentifier title="{Name}" text="{coursetId}" />
+											<Text text="{SupplierName}" />
+											<Text text="{SupplierName}" />
+											<Text text="{SupplierName}" />
+											<Text text="{Width} x {Depth} x {Height} {DimUnit}" />
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
+
+

@@ -1,7 +1,7 @@
 {
 	"_version": "1.5.0",
 	"sap.app": {
-		"id": "Test.Test",
+		"id": "Test.TestDynamik",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -38,7 +38,7 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "Test.Test.view.View1",
+			"viewName": "Test.TestDynamik.view.View1",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -51,8 +51,7 @@
 				"sap.ushell": {},
 				"sap.collaboration": {},
 				"sap.ui.comp": {},
-				"sap.uxap": {},
-				"sap.tnt": {}
+				"sap.uxap": {}
 			}
 		},
 		"contentDensities": {
@@ -63,7 +62,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "Test.Test.i18n.i18n"
+					"bundleName": "Test.TestDynamik.i18n.i18n"
 				}
 			}
 		},
@@ -77,7 +76,7 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"async": true,
-				"viewPath": "Test.Test.view",
+				"viewPath": "Test.TestDynamik.view",
 				"controlAggregation": "pages",
 				"controlId": "idAppControl"
 			},

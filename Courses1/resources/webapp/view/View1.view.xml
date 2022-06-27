@@ -1,0 +1,11 @@
+<mvc:View
+		controllerName="test.Courses1.controller.View1"
+		xmlns="sap.m"
+		xmlns:mvc="sap.ui.core.mvc"
+		displayBlock="true">
+<Shell>
+	<App class="myAppDemoWT" id="app"/>
+</Shell>
+</mvc:View>
+
+

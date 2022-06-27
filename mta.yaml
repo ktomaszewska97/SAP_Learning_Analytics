@@ -19,6 +19,40 @@ modules:
     type: html5
     path: Test
 
+
+  
+
+
+  
+
+
+  - name: Courses
+    type: html5
+    path: Courses
+
+
+  
+
+
+  - name: SingleCourse
+    type: html5
+    path: SingleCourse
+
+
+  - name: TestDynamik
+    type: html5
+    path: Employees1
+
+
+  - name: Courses1
+    type: html5
+    path: Courses1
+
+
+  - name: SingleCourse1
+    type: html5
+    path: SingleCourse1
+
 resources:
   - name: UUA-service
     type: com.sap.xs.uaa-space

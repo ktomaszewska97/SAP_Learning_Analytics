@@ -1,7 +1,0 @@
-<mvc:View controllerName="Test.Test.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-  <Page id="listPage" title="{i18n>ListTitle}" >
-        <List id="list" items="{/Products}">
-          <StandardListItem id="_IDGenStandardListItem1" type="Navigation" press="handleListItemPress" title="{ProductName}"/>
-        </List>
-    </Page>
-</mvc:View>

@@ -1,0 +1,20 @@
+
+
+
+
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  controllerName="courses.Courses.controller.Courses" >
+  <App id="app">
+  <Page title="Master view">
+  <content>
+  <VBox>
+  <Label text="Welcome on the first view !" />
+  <Button text="Navigate to the second view" press="onPress" />
+  </VBox>
+  </content>
+  </Page>
+  </App>
+</mvc:View>

@@ -1,7 +1,7 @@
 {
 	"_version": "1.5.0",
 	"sap.app": {
-		"id": "Test.Test",
+		"id": "test.Courses1",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -38,7 +38,7 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "Test.Test.view.View1",
+			"viewName": "test.Courses1.view.courses",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -51,8 +51,7 @@
 				"sap.ushell": {},
 				"sap.collaboration": {},
 				"sap.ui.comp": {},
-				"sap.uxap": {},
-				"sap.tnt": {}
+				"sap.uxap": {}
 			}
 		},
 		"contentDensities": {
@@ -63,7 +62,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "Test.Test.i18n.i18n"
+					"bundleName": "test.Courses1.i18n.i18n"
 				}
 			}
 		},
@@ -77,21 +76,35 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"async": true,
-				"viewPath": "Test.Test.view",
+				"viewPath": "test.Courses1.view",
 				"controlAggregation": "pages",
-				"controlId": "idAppControl"
+				"controlId": "idAppControl",
+				 "clearTarget" : "true"
 			},
 			"routes": [{
-				"name": "RouteView1",
-				"pattern": "RouteView1",
-				"target": ["TargetView1"]
+				"name": "courses",
+				"pattern": "courses",
+				"target": ["courses"]
+			},
+			
+			{
+				"name": "employees",
+				"pattern": "employees",
+				"target": ["employees"]
 			}],
 			"targets": {
-				"TargetView1": {
+				"courses": {
 					"viewType": "XML",
 					"transition": "slide",
-					"clearAggregation": true,
-					"viewName": "View1"
+					"clearControlAggregation": false,
+					"viewName": "courses",
+					"viewId":"courses"
+				},
+					"employees": {
+					"viewType": "XML",
+				    "viewId":"employees",
+					"viewName": "employees",
+					"clearControlAggregation": false
 				}
 			}
 		}
