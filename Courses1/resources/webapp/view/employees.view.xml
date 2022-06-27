@@ -11,7 +11,7 @@ xmlns="sap.m">
 		<App id="app">
 			<pages>
 				<!--navigation bar-->
-				<Page id="employees" title="TEST" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer"
+				<Page id="page" title="Employees" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer"
 		showNavButton="true">
 					<!--menu button-->
 					<headerContent>
@@ -20,8 +20,8 @@ xmlns="sap.m">
 								<Menu>
 									<MenuItem text="Dashboard"></MenuItem>
 									<MenuItem text="Learning History"  />
-									<MenuItem text="People Overview"/>
-									<MenuItem text="Courses Overview"/>
+									<MenuItem text="People Overview" press="onPressPeople"/>
+									<MenuItem text="Courses Overview" press="onPressCourses"/>
 								</Menu>
 							</menu>
 						</MenuButton>
@@ -41,12 +41,12 @@ xmlns="sap.m">
 							<fb:filterGroupItems>
 								
 								<!--company selection-->
-								<fb:FilterGroupItem groupName="__$INTERNAL$" name="LP" label="Learning Platform" visibleInFilterBar="true">
+								<fb:FilterGroupItem groupName="__$INTERNAL$" name="Company" label="Company" visibleInFilterBar="true">
 									<fb:control>
 										<ComboBox type="Text">
 											<items>
-												<core:Item key="udemy" text="Udemyy"/>
-												<core:Item key="litmos" text="SAP Litmos"/>
+												<core:Item key="udemy" text="msg germany"/>
+												<core:Item key="litmos" text="msg france"/>
 												
 											</items>
 										</ComboBox>
@@ -54,12 +54,12 @@ xmlns="sap.m">
 								</fb:FilterGroupItem>
 								
 								<!--Business Unit-->
-								<fb:FilterGroupItem groupName="__$INTERNAL$" name="cc" label="Course Category" visibleInFilterBar="true">
+								<fb:FilterGroupItem groupName="__$INTERNAL$" name="bu" label="Business Unit" visibleInFilterBar="true">
 									<fb:control>
 										<ComboBox type="Text">
 											<items>
 												<core:Item key="marketing" text="Marketing"/>
-												<core:Item key="hr" text="Soft Skills"/>
+												<core:Item key="hr" text="HR"/>
 												<core:Item key="it" text="IT"/>
 											</items>
 										</ComboBox>
@@ -69,35 +69,24 @@ xmlns="sap.m">
 								
 	
 								<!--team selection-->
-								<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="rating" label="Rating" visibleInFilterBar="true">
+								<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="team" label="Team" visibleInFilterBar="true">
 									<fb:control>
 										<ComboBox type="Text">
 											<items>
-												<core:Item key="t1" text=">4,5"/>
-												<core:Item key="t2" text=">4"/>
-												<core:Item key="t3" text=">3,5"/>
+												<core:Item key="t1" text="Team 1"/>
+												<core:Item key="t2" text="Team 2"/>
+												<core:Item key="t3" text="Team 3"/>
 											</items>
 										</ComboBox>
 					                </fb:control>
 				                </fb:FilterGroupItem>
 				                
-				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="level" label="Level" visibleInFilterBar="true">
+				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="active" label="Active or Inactive" visibleInFilterBar="true">
 									<fb:control>
 										<ComboBox type="Text">
 											<items>
-												<core:Item key="t1" text="Beginner"/>
-												<core:Item key="t2" text="Intermediate"/>
-												<core:Item key="t1" text="Expert"/>
-											</items>
-										</ComboBox>
-					                </fb:control>
-				                </fb:FilterGroupItem>
-				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="compliance" label="Compliance" visibleInFilterBar="true">
-									<fb:control>
-										<ComboBox type="Text">
-											<items>
-												<core:Item key="t1" text="yes"/>
-												<core:Item key="t2" text="no"/>
+												<core:Item key="t1" text="Active"/>
+												<core:Item key="t2" text="Inactive"/>
 											</items>
 										</ComboBox>
 					                </fb:control>
@@ -116,21 +105,22 @@ xmlns="sap.m">
 						
 					</l:VerticalLayout>
 				    <Toolbar>
-					<Title level="H3" text="Table of Courses:" />
+					<Title level="H3" text="Table of Employees:" />
 					<ToolbarSpacer />
 				    </Toolbar>
 				    <SearchField width="95%" class="sapUiSmallMargin" />
-						<Table id="coursesTable"
+						<Table id="employeesTable"
 							items="{/ProductCollection}"
 							>
 								<columns>
-									<Column id="courseName" width="25%"><Text text="Course" /></Column>
-									<Column id="courseCateg" width="25%" demandPopin="true"><Text text="Course Category" /></Column>
-									<Column id="numbPart" width="10%" demandPopin="true"><Text text="Number of Participants" /></Column>
-									<Column id="avgHours" width="10%" demandPopin="true"><Text text="Average hours spent" /></Column>
-									<Column id="rating" width="10%" demandPopin="true"><Text text="Rating" /></Column>
-									<Column id="avgProg" width="10%" demandPopin="true"><Text text="Average Progress" /></Column>
-								    <Column id="avgExamRate" width="10%" demandPopin="true"><Text text="Average Exam Rate" /></Column>
+									<Column id="name" width="20%"><Text text="Name" /></Column>
+									<Column id="company" width="15%" demandPopin="true"><Text text="Company" /></Column>
+									<Column id="bu" width="15%" demandPopin="true"><Text text="Business Unit" /></Column>
+									<Column id="hoursSpent" width="10%" demandPopin="true"><Text text="Hours spent" /></Column>
+									<Column id="coursesAssig" width="10%" demandPopin="true"><Text text="Courses Assigned" /></Column>
+									<Column id="coursesCompl" width="10%" demandPopin="true"><Text text="Courses Completed" /></Column>
+								    <Column id="lpAssig" width="10%" demandPopin="true"><Text text="LP Assigned" /></Column>
+								    <Column id="lpCompl" width="10%" demandPopin="true"><Text text="LP Completed" /></Column>
 								</columns>
 								<items>
 									<ColumnListItem
@@ -160,5 +150,3 @@ xmlns="sap.m">
 		</App>
 	</Shell>
 </mvc:View>
-
-

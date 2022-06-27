@@ -1,4 +1,4 @@
-<mvc:View controllerName="test.Courses1.controller.View1"
+<mvc:View controllerName="test.Courses1.controller.courses"
 xmlns:mvc="sap.ui.core.mvc" 
 xmlns:fb="sap.ui.comp.filterbar"
 xmlns:l="sap.ui.layout"
@@ -20,7 +20,7 @@ xmlns="sap.m">
 								<Menu>
 									<MenuItem text="Dashboard"></MenuItem>
 									<MenuItem text="Learning History"  />
-									<MenuItem text="People Overview"/>
+									<MenuItem text="People Overview" press="onPressPeople"/>
 									<MenuItem text="Courses Overview"/>
 								</Menu>
 							</menu>
@@ -31,8 +31,6 @@ xmlns="sap.m">
 					
 					<content>
 					<!--subtitle-->
-				
-					<Button text="Navigate to the second view" press="onPress" />
 					
 					<!--filter apply	-->
 					<l:VerticalLayout width="100%">

@@ -38,7 +38,7 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "test.Courses1.view.courses",
+			"viewName": "test.Courses1.view.View1",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -77,13 +77,14 @@
 				"viewType": "XML",
 				"async": true,
 				"viewPath": "test.Courses1.view",
+				"controlId": "app",
 				"controlAggregation": "pages",
-				"controlId": "idAppControl",
+				
 				 "clearTarget" : "true"
 			},
 			"routes": [{
 				"name": "courses",
-				"pattern": "courses",
+				"pattern": "",
 				"target": ["courses"]
 			},
 			

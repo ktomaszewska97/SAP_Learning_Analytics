@@ -1,5 +1,5 @@
 <mvc:View
-		controllerName="test.Courses1.controller.View1"
+		controllerName="test.Courses1.controller.courses"
 		xmlns="sap.m"
 		xmlns:mvc="sap.ui.core.mvc"
 		displayBlock="true">

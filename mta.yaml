@@ -26,9 +26,7 @@ modules:
   
 
 
-  - name: Courses
-    type: html5
-    path: Courses
+  
 
 
   
@@ -39,9 +37,7 @@ modules:
     path: SingleCourse
 
 
-  - name: TestDynamik
-    type: html5
-    path: Employees1
+  
 
 
   - name: Courses1
