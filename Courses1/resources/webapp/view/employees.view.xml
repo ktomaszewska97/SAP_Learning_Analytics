@@ -17,11 +17,15 @@ xmlns="sap.m">
 					<headerContent>
 						<MenuButton text="Menu">
 							<menu>
-								<Menu>
-									<MenuItem text="Dashboard"></MenuItem>
-									<MenuItem text="Learning History"  />
+									<Menu>
+									<MenuItem text="Dashboard" press="onPressDashboard"></MenuItem>
+									<MenuItem text="Learning History" press="onPressHistory" />
 									<MenuItem text="People Overview" press="onPressPeople"/>
-									<MenuItem text="Courses Overview" press="onPressCourses"/>
+									
+									<MenuItem text="Courses Overview" press="onPressCourses" />
+									<MenuItem text="Test Single Course" press="onPressSingleCourse"/>
+									<MenuItem text="Test Single Person" press="onPressSinglePerson"/>
+									
 								</Menu>
 							</menu>
 						</MenuButton>

@@ -1,0 +1,144 @@
+<mvc:View controllerName="test.Courses1.controller.dashboard" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns:fb="sap.ui.comp.filterbar"
+xmlns:l="sap.ui.layout"
+xmlns:f="sap.ui.layout.form"
+xmlns:core="sap.ui.core"
+displayBlock="true" 
+xmlns="sap.m">
+	
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<!--navigation bar-->
+				<Page id="page" title="Learning Platform Analytics" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer"
+		showNavButton="true">
+					<!--menu button-->
+					<headerContent>
+						<MenuButton text="Menu">
+							<menu>
+									<Menu>
+									<MenuItem text="Dashboard" press="onPressDashboard"></MenuItem>
+									<MenuItem text="Learning History" press="onPressHistory" />
+									<MenuItem text="People Overview" press="onPressPeople"/>
+									
+									<MenuItem text="Courses Overview" press="onPressCourses" />
+									<MenuItem text="Test Single Course" press="onPressSingleCourse"/>
+									<MenuItem text="Test Single Person" press="onPressSinglePerson"/>
+									
+								</Menu>
+							</menu>
+						</MenuButton>
+					</headerContent>
+					
+					
+					
+					<content>
+					<!--subtitle-->
+					<Title level="H2" text="Welcome Back, Jack Done!" />
+				
+					
+					
+					<!--filter apply	-->
+					<l:VerticalLayout width="100%">
+						<!--<Label text="Filters"/>-->
+						<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+							<fb:filterGroupItems>
+								
+								<!--company selection-->
+								<fb:FilterGroupItem groupName="__$INTERNAL$" name="Company" label="Company" visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="udemy" text="Udemy"/>
+												<core:Item key="litmos" text="Litmos"/>
+												
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								
+								<!--Business Unit-->
+								<fb:FilterGroupItem groupName="__$INTERNAL$" name="bu" label="Business Unit" visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="marketing" text="Marketing"/>
+												<core:Item key="hr" text="HR"/>
+												<core:Item key="it" text="IT"/>
+											</items>
+										</ComboBox>
+									
+								    </fb:control>
+								</fb:FilterGroupItem>
+								
+								
+	
+								<!--team selection-->
+								<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="team" label="Team" labelTooltip="Tooltip GroupItem Example">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="t1" text="Team 1"/>
+												<core:Item key="t2" text="Team 2"/>
+												<core:Item key="t3" text="Team 3"/>
+											</items>
+										</ComboBox>
+					                </fb:control>
+				                </fb:FilterGroupItem>
+				                
+				                <!--date-->
+				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="date" label="Date Range" labelTooltip="Tooltip GroupItem Example">
+									<fb:control>
+										<!--date range selection-->
+									<Label labelFor="DRS2"/>
+							            <DateRangeSelection id="date" change="handleChange"/>
+					                </fb:control>
+				                </fb:FilterGroupItem>
+								
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+						
+					</l:VerticalLayout>
+					
+					<!--indices-->
+					<l:Grid containerQuery="true" class="sapUiSmallMarginTop">
+						<TileContent footer="Total num. of users"  class="sapUiSmallMargin">
+							<NumericContent value="512" icon="sap-icon://customer" />
+						</TileContent>
+						<TileContent footer="Total num. of courses" class="sapUiSmallMargin">
+							<NumericContent value="35" icon="sap-icon://e-learning" />
+						</TileContent>
+						<TileContent footer="Users never logged in" class="sapUiSmallMargin">
+							<NumericContent value="17" icon="sap-icon://negative" />
+						</TileContent>
+					
+						
+					</l:Grid>
+					<!--<VBox class="sapUiSmallMargin">-->
+					<!--	<f:SimpleForm id="SimpleFormChangeColumn_oneGroup234" editable="true" layout="ColumnLayout"-->
+					<!--	columnsM="3"-->
+					<!--	columnsL="3"-->
+					<!--	columnsXL="3"-->
+					<!--	>-->
+					<!--	<f:content>-->
+							
+					<!--			<Text text="Total num. of users: 129"  />-->
+					<!--			<Text text="Total num. of courses: 89"   />-->
+					<!--			<Text text="Never logged in: 17"  />-->
+			
+					<!--	</f:content>-->
+					<!--	</f:SimpleForm>-->
+					<!--</VBox>-->
+					
+					
+					
+						
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
+
+

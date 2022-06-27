@@ -1,0 +1,119 @@
+<mvc:View controllerName="test.Courses1.controller.history" 
+xmlns:mvc="sap.ui.core.mvc"
+xmlns:l="sap.ui.layout"
+class="viewPadding"
+xmlns:u="sap.ui.unified"
+displayBlock="true" 
+xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			
+			<pages>
+				<Page id="page" title="Learning Platform Analytics" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer" showNavButton="true">
+					<!--navbar-->
+					<headerContent>
+						<MenuButton text="Menu">
+							<menu>
+									<Menu>
+									<MenuItem text="Dashboard" press="onPressDashboard"></MenuItem>
+									<MenuItem text="Learning History" press="onPressHistory" />
+									<MenuItem text="People Overview" press="onPressPeople"/>
+									
+									<MenuItem text="Courses Overview" press="onPressCourses" />
+									<MenuItem text="Test Single Course" press="onPressSingleCourse"/>
+									<MenuItem text="Test Single Person" press="onPressSinglePerson"/>
+									
+								</Menu>
+							</menu>
+						</MenuButton>
+					</headerContent>
+					
+					
+					<Toolbar>
+					<Title level="H2" text="Learning History" />
+					<ToolbarSpacer />
+				    </Toolbar>	
+					
+					
+					<!--content-->
+					<content>
+					
+				
+					
+					<l:VerticalLayout>
+						
+						<!--<Title-->
+						<!--	level="H3"-->
+						<!--	titleStyle="H3"-->
+						<!--	text="Hello Jane, here is your information:"-->
+						<!--class="sapUiMediumMarginTopBottom sapUiSmallMarginBegin"/>-->
+					<!--<Toolbar>-->
+					<Title level="H2" text="Hello Jane, here is your information:" />
+					<!--<ToolbarSpacer />-->
+				    <!--</Toolbar>-->
+						<!--<Title text="Hello Jane, here is your information:"/>-->
+						<Title text="Time spent on learning:"/>
+						<NumericContent value="115" scale="h"
+						 class="sapUiSmallMargin" press="press" />	
+							
+						
+						<!--calendar-->
+						<!--<u:Calendar-->
+						<!--id="calendar"-->
+						<!--select="handleCalendarSelect"-->
+						<!--intervalSelection="true"-->
+						<!--weekNumberSelect="handleWeekNumberSelect"/>-->
+						<u:CalendarDateInterval
+				id="calendar"
+				width="320px"
+				select="handleCalendarSelect"/>
+		<l:VerticalLayout>
+			<!--<Button-->
+			<!--		press="handleSelectToday"-->
+			<!--		text="Select Today"/>-->
+			<l:HorizontalLayout>
+				<Label
+						text="Selected Date:"
+						labelFor="selectedDate"
+						class="labelMarginLeft"/>
+				<Text
+						id="selectedDate"
+						text="No Date Selected"
+						class="labelMarginLeft"/>
+			</l:HorizontalLayout>
+		</l:VerticalLayout>
+						
+						<!--<l:HorizontalLayout>-->
+						<!--	<Label-->
+						<!--	text="Selected From:"-->
+						<!--	class="labelMarginLeft" />-->
+						<!--	<Text-->
+						<!--	id="selectedDateFrom"-->
+						<!--	text="No Date Selected"-->
+						<!--	class="labelMarginLeft"/>-->
+						<!--</l:HorizontalLayout>-->
+						
+						<!--<l:HorizontalLayout>-->
+						<!--	<Label-->
+						<!--	text="Selected To:"-->
+						<!--	class="labelMarginLeft" />-->
+						<!--	<Text-->
+						<!--	id="selectedDateTo"-->
+						<!--	text="No Date Selected"-->
+						<!--	class="labelMarginLeft"/>-->
+						<!--</l:HorizontalLayout>-->
+						    
+					</l:VerticalLayout>
+						
+						
+						
+						
+		            
+						
+				
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

@@ -84,7 +84,7 @@
 			},
 			"routes": [{
 				"name": "courses",
-				"pattern": "",
+				"pattern": "courses",
 				"target": ["courses"]
 			},
 			
@@ -92,7 +92,28 @@
 				"name": "employees",
 				"pattern": "employees",
 				"target": ["employees"]
-			}],
+			},
+			{
+				"name": "singleCourse",
+				"pattern": "singleCourse",
+				"target": ["singleCourse"]
+			},
+			{
+				"name": "singleperson",
+				"pattern": "singleperson",
+				"target": ["singleperson"]
+			},
+			{
+				"name": "dashboard",
+				"pattern": "",
+				"target": ["dashboard"]
+			},
+			{
+				"name": "history",
+				"pattern": "history",
+				"target": ["history"]
+			}
+			],
 			"targets": {
 				"courses": {
 					"viewType": "XML",
@@ -101,10 +122,37 @@
 					"viewName": "courses",
 					"viewId":"courses"
 				},
+				"singleCourse": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "singleCourse",
+					"viewId":"singleCourse"
+				},
+					"singleperson": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "singleperson",
+					"viewId":"singleperson"
+				},
 					"employees": {
 					"viewType": "XML",
 				    "viewId":"employees",
 					"viewName": "employees",
+					"clearControlAggregation": false
+				},
+					"dashboard": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "dashboard",
+					"viewId":"dashboard"
+				},
+					"history": {
+					"viewType": "XML",
+				    "viewId":"history",
+					"viewName": "history",
 					"clearControlAggregation": false
 				}
 			}

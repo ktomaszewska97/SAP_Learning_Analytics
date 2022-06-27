@@ -3,11 +3,11 @@ sap.ui.define([
 ], function (Controller) {
 	"use strict";
 
-	return Controller.extend("test.Courses1.controller.employees", {
+	return Controller.extend("test.Courses1.controller.history", {
 		onInit: function () {
 
 		},
-  onPressPeople: function(oEvent)
+		  onPressPeople: function(oEvent)
   {
   var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
   oRouter.navTo("employees", true);

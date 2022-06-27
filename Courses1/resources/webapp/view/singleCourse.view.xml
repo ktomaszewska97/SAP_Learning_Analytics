@@ -1,0 +1,111 @@
+<mvc:View controllerName="test.Courses1.controller.singleCourse"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns:c="sap.ui.core"
+displayBlock="true" 
+xmlns:t="sap.ui.table"
+xmlns:f="sap.ui.layout.form"
+xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="Learning Platform Analytics" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer" showNavButton="true">
+					<!--navbar-->
+					<headerContent>
+						<MenuButton text="Menu">
+							<menu>
+								<Menu>
+									<MenuItem text="Dashboard" press="onPressDashboard"></MenuItem>
+									<MenuItem text="Learning History" press="onPressHistory" />
+									<MenuItem text="People Overview" press="onPressPeople"/>
+									
+									<MenuItem text="Courses Overview" press="onPressCourses" />
+									<MenuItem text="Test Single Course" press="onPressSingleCourse"/>
+									<MenuItem text="Test Single Person" press="onPressSinglePerson"/>
+									
+								</Menu>
+							</menu>
+						</MenuButton>
+					</headerContent>
+					
+			
+				    
+				    
+					<content>
+						<!--user profile-->
+					<f:SimpleForm id="SimpleFormDisplay480"
+					minWidth="1024"
+					maxContainerCols="2"
+					editable="false"
+					layout="ResponsiveGridLayout"
+					
+					title="Course Title"
+					
+					labelSpanL="4"
+					labelSpanM="4"
+					emptySpanL="0"
+					emptySpanM="0"
+					columnsL="2"
+					columnsM="2">
+					<f:content>
+						<c:Title text="Course Information:" />
+						<Label text="Course Category" />
+						<Text text="Soft Skills" />
+						<Label text="Number of Participants" />
+						<Text text="200" />
+						<Label text="Average Hours spent" />
+						<Text text="4h" />
+						<c:Title text=" " />
+						<Label text="Rating" />
+						<Text text="3/5" />
+						<Label text="Learning Platform" />
+						<Text text="Udemy" />
+					</f:content>
+					<f:layoutData>
+						<FlexItemData shrinkFactor="0" backgroundDesign="Solid" styleClass="sapContrastPlus"/>
+					</f:layoutData>
+				</f:SimpleForm>
+					<Toolbar>
+						<Title level="H3" text="Table of Participants:" />
+					<ToolbarSpacer />
+				    </Toolbar>
+				    <SearchField width="95%" class="sapUiSmallMargin" />
+						<!--table	-->
+							<Table id="productsTable"
+							items="{/ProductCollection}"
+							>
+								<columns>
+									<Column id="name" width="25%"><Text text="Name" /></Column>
+									<Column id="hoursSpent" width="25%" demandPopin="true"><Text text="Hours Spent" /></Column>
+									<Column id="progress" width="25%" demandPopin="true"><Text text="Progress" /></Column>
+									<Column id="examRate" width="25%" demandPopin="true"><Text text="Exam Rate" /></Column>
+								</columns>
+								<items>
+									<ColumnListItem
+									type="Active"
+									vAlign="Middle"
+									navigated="{
+									parts: [
+									'settings>/navigatedItem',
+									'ProductId'
+									],
+									formatter: '.isNavigated'
+									}"
+									press="onPress">
+										<cells>
+											<ObjectIdentifier title="{Name}" text="{coursetId}" />
+											<Text text="{SupplierName}" />
+											<Text text="{SupplierName}" />
+											<Text text="{SupplierName}" />
+											<Text text="{Width} x {Depth} x {Height} {DimUnit}" />
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+					
+						
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

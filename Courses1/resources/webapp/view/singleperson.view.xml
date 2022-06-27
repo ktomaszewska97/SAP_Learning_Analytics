@@ -1,4 +1,4 @@
-<mvc:View controllerName="test.SingleCourse1.controller.View1" 
+<mvc:View controllerName="test.Courses1.controller.singleperson"
 xmlns:mvc="sap.ui.core.mvc"
 xmlns:c="sap.ui.core"
 displayBlock="true" 
@@ -13,18 +13,25 @@ xmlns="sap.m">
 					<headerContent>
 						<MenuButton text="Menu">
 							<menu>
-								<Menu>
-									<MenuItem text="Dashboard"></MenuItem>
-									<MenuItem text="Learning History"  />
-									<MenuItem text="People Overview"/>
-									<MenuItem text="Courses Overview"/>
-									<MenuItem text="Menu Item"/>
+	<Menu>
+									<MenuItem text="Dashboard" press="onPressDashboard"></MenuItem>
+									<MenuItem text="Learning History" press="onPressHistory" />
+									<MenuItem text="People Overview" press="onPressPeople"/>
+									
+									<MenuItem text="Courses Overview" press="onPressCourses" />
+									<MenuItem text="Test Single Course" press="onPressSingleCourse"/>
+									<MenuItem text="Test Single Person" press="onPressSinglePerson"/>
+									
 								</Menu>
 							</menu>
 						</MenuButton>
 					</headerContent>
 					
-			
+					
+					<!--<Toolbar>-->
+					<!--<Title level="H3" text="Anna Foster" />-->
+					<!--<ToolbarSpacer />-->
+				 <!--   </Toolbar>	-->
 				    
 				    
 					<content>
@@ -35,7 +42,7 @@ xmlns="sap.m">
 					editable="false"
 					layout="ResponsiveGridLayout"
 					
-					title="Course Title"
+					title="Anna Foster" 
 					
 					labelSpanL="4"
 					labelSpanM="4"
@@ -44,37 +51,36 @@ xmlns="sap.m">
 					columnsL="2"
 					columnsM="2">
 					<f:content>
-						<c:Title text="Course Information:" />
-						<Label text="Course Category" />
-						<Text text="Soft Skills" />
-						<Label text="Number of Participants" />
-						<Text text="200" />
-						<Label text="Average Hours spent" />
-						<Text text="4h" />
+						<c:Title text="Personal Information" />
+						<Label text="Name" />
+						<Text text="Anna Foster" />
+						<Label text="User ID" />
+						<Text text="1618" />
+						<Label text="Company" />
+						<Text text="Germany XXX" />
+						<Label text="Business Unit" />
+						<Text text="Marketing" />
 						<c:Title text=" " />
-						<Label text="Rating" />
-						<Text text="3/5" />
-						<Label text="Learning Platform" />
-						<Text text="Udemy" />
+						<Label text="Position" />
+						<Text text="Marketing Department header" />
+						<Label text="Email" />
+						<Text text="anna@gmail.com" />
 					</f:content>
 					<f:layoutData>
 						<FlexItemData shrinkFactor="0" backgroundDesign="Solid" styleClass="sapContrastPlus"/>
 					</f:layoutData>
 				</f:SimpleForm>
-					<Toolbar>
-						<Title level="H3" text="Table of Participants:" />
-					<ToolbarSpacer />
-				    </Toolbar>
-				    <SearchField width="95%" class="sapUiSmallMargin" />
+					
+						
 						<!--table	-->
 							<Table id="productsTable"
 							items="{/ProductCollection}"
-							>
+							headerText="Learning Progress">
 								<columns>
-									<Column id="name" width="25%"><Text text="Name" /></Column>
-									<Column id="hoursSpent" width="25%" demandPopin="true"><Text text="Hours Spent" /></Column>
-									<Column id="progress" width="25%" demandPopin="true"><Text text="Progress" /></Column>
-									<Column id="examRate" width="25%" demandPopin="true"><Text text="Exam Rate" /></Column>
+									<Column id="courseCol" width="12em"><Text text="Courses" /></Column>
+									<Column id="progressCol" minScreenWidth="Tablet" demandPopin="true"><Text text="Progress" /></Column>
+									<Column id="deadlineCol" minScreenWidth="Tablet" demandPopin="true"><Text text="Deadline" /></Column>
+									<Column id="timeCol" minScreenWidth="Tablet" demandPopin="true" hAlign="End"><Text text="DueTime" /></Column>
 								</columns>
 								<items>
 									<ColumnListItem
