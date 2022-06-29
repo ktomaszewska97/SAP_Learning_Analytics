@@ -7,57 +7,31 @@ modules:
     path: web
     requires:
       - name: UUA-service
-
   - name: db
     type: hdb
     path: db
     requires:
-     - name: hdi_db
-
-
-  - name: Test
-    type: html5
-    path: Test
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-  - name: SingleCourse
-    type: html5
-    path: SingleCourse
-
-
-  
-
-
+      - name: hdi_db
   - name: Courses1
     type: html5
     path: Courses1
 
-
-  - name: SingleCourse1
-    type: html5
-    path: SingleCourse1
+  - name: datajs
+    type: nodejs
+    path: datajs
+    provides:
+     - name: datajs_api
+       properties:
+          url: ${default-url}
+     
 
 resources:
   - name: UUA-service
     type: com.sap.xs.uaa-space
-
   - name: hdi_db
     parameters:
-       config:
-          schema: DB
+      config:
+        schema: DB
     properties:
-       hdi-container-name: ${service-name}
+      hdi-container-name: '${service-name}'
     type: com.sap.xs.hdi-container
-
