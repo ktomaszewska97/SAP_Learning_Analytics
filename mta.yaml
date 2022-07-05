@@ -13,12 +13,6 @@ modules:
           name: core-xsjs-backend
           url: '~{url}'
           forwardAuthToken: true
-      - name: core_node_api
-        group: destinations
-        properties:
-          name: core-backend
-          url: '~{url}'
-          forwardAuthToken: true
   - name: db
     type: hdb
     path: db
@@ -35,24 +29,6 @@ modules:
       - name: UUA-service
       - name: hdi_db
       - name: db
-  - name: core_node
-    type: nodejs
-    path: core_node
-    provides:
-      - name: core_node_api
-        properties:
-          url: '${default-url}'
-    requires:
-      - name: UUA-service
-      - name: hdi_db
-      - name: db
-  - name: di-local-npm-registry
-    type: foo
-    provides:
-      - name: local-npm-repository
-    properties:
-      UPSTREAM_LINK: "https://registry.npmjs.org/"
-      SAPUPSTREAM_LINK: "https://registry.npmjs.org/"
 resources:
   - name: UUA-service
     type: com.sap.xs.uaa-space

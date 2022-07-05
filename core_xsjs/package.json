@@ -1,7 +1,15 @@
 {
   "dependencies": {
     "@sap/xsenv": "^2",
-    "@sap/xsjs": "^6"
+    "@sap/xsjs": "^6",
+    "express": "^4.17",
+	"@sap/xssec": "^2.2",
+	"@sap/hdbext": "~6.2",
+	"@sap/textbundle": "latest",
+	"@sap/logging": "~5.2",
+	"async": "latest",
+	"passport": "~0.4.0",
+	"axios": "latest"
   },
   "description": "my description",
   "devDependencies": {
