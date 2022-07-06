@@ -2,16 +2,27 @@
 xmlns:mvc="sap.ui.core.mvc"
 xmlns:l="sap.ui.layout"
 class="viewPadding"
+xmlns:core="sap.ui.core"
 xmlns:u="sap.ui.unified"
+xmlns:ux="sap.uxap"
+xmlns:m="sap.m"
 displayBlock="true" 
 xmlns="sap.m">
+	
 	<Shell id="shell">
-		<App id="app">
+		<App id="app" class="myApp">
 			
 			<pages>
-				<Page id="page" title="Learning Platform Analytics" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer" showNavButton="true">
-					<!--navbar-->
+				<Page id="page" title="Learning History" class="sapMShellGlobalOuterBackground sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer" 
+				showNavButton="false">
+					
+					<!--menu button-->
+					
 					<headerContent>
+						<!--logo added-->
+						<core:Icon src="sap-icon://customfont/cool" size="20px"></core:Icon>
+						<HBox>
+						<!--menu button-->
 						<MenuButton text="Menu">
 							<menu>
 									<Menu>
@@ -26,7 +37,10 @@ xmlns="sap.m">
 								</Menu>
 							</menu>
 						</MenuButton>
+						</HBox>
+						
 					</headerContent>
+					
 					
 					
 					<Toolbar>
@@ -48,68 +62,91 @@ xmlns="sap.m">
 						<!--	text="Hello Jane, here is your information:"-->
 						<!--class="sapUiMediumMarginTopBottom sapUiSmallMarginBegin"/>-->
 					<!--<Toolbar>-->
-					<Title level="H2" text="Hello Jane, here is your information:" />
-					<!--<ToolbarSpacer />-->
-				    <!--</Toolbar>-->
-						<!--<Title text="Hello Jane, here is your information:"/>-->
-						<Title text="Time spent on learning:"/>
-						<NumericContent value="115" scale="h"
-						 class="sapUiSmallMargin" press="press" />	
+					
+					
+					<Panel headerText="Hello Jane, here is your information:">
+						<Title text="Time spent on learning: 115"/>
+					<!--</Panel>	-->
+					<!--<Panel headerText="">-->
+					<!--</Panel>-->
+					
+					
+						<!--<Title text="Time spent on learning:"/>-->
+						<!--<NumericContent value="115" scale="h"-->
+						<!-- class="sapUiSmallMargin" press="press" />	-->
 							
 						
 						<!--calendar-->
-						<!--<u:Calendar-->
-						<!--id="calendar"-->
-						<!--select="handleCalendarSelect"-->
-						<!--intervalSelection="true"-->
-						<!--weekNumberSelect="handleWeekNumberSelect"/>-->
-						<u:CalendarDateInterval
-				id="calendar"
-				width="320px"
-				select="handleCalendarSelect"/>
-		<l:VerticalLayout>
-			<!--<Button-->
-			<!--		press="handleSelectToday"-->
-			<!--		text="Select Today"/>-->
-			<l:HorizontalLayout>
-				<Label
-						text="Selected Date:"
-						labelFor="selectedDate"
-						class="labelMarginLeft"/>
-				<Text
-						id="selectedDate"
-						text="No Date Selected"
-						class="labelMarginLeft"/>
-			</l:HorizontalLayout>
-		</l:VerticalLayout>
+				
+					
+						<!--<Panel headerText="Num. of hours spent on learning: 115">-->
 						
-						<!--<l:HorizontalLayout>-->
-						<!--	<Label-->
-						<!--	text="Selected From:"-->
-						<!--	class="labelMarginLeft" />-->
-						<!--	<Text-->
-						<!--	id="selectedDateFrom"-->
-						<!--	text="No Date Selected"-->
-						<!--	class="labelMarginLeft"/>-->
-						<!--</l:HorizontalLayout>-->
+						<VBox class="sapUiSmallMargin">
+	
+								<items>
+								<u:CalendarDateInterval
+								id="calendar"
+								width="320px"
+								select="handleCalendarSelect"/>
+								</items>
+							
+						</VBox>
 						
-						<!--<l:HorizontalLayout>-->
-						<!--	<Label-->
-						<!--	text="Selected To:"-->
-						<!--	class="labelMarginLeft" />-->
-						<!--	<Text-->
-						<!--	id="selectedDateTo"-->
-						<!--	text="No Date Selected"-->
-						<!--	class="labelMarginLeft"/>-->
-						<!--</l:HorizontalLayout>-->
-						    
+						
+					</Panel>
+					
 					</l:VerticalLayout>
+					
+					<!--sections-->
+					<ux:ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+					<ux:headerTitle>
+						<ux:ObjectPageHeader objectTitle="Statistics Visulization">
+						</ux:ObjectPageHeader>
+					</ux:headerTitle>
+					
+					<ux:headerContent>
+						<m:ObjectAttribute title="" text="charts"/>
+					</ux:headerContent>
+					
+					<ux:sections>
+						<ux:ObjectPageSection titleUppercase="false" title="Important KPIs">
+							
+						<ux:subSections>
+								<ux:ObjectPageSubSection title="TOP Users Global" titleUppercase="false">
+									<ux:blocks>
+									<m:ObjectAttribute title="" text="chart"/>	
+									<!--	<blockcolor:BlockBlueT1 id="bbt1"/>-->
+									</ux:blocks>
+								</ux:ObjectPageSubSection>
+								
+								<ux:ObjectPageSubSection title="TOP Courses Global" titleUppercase="false">
+									<ux:blocks>
+									<!--	<blockcolor:BlockBlueT2 id="bbt2"/>-->
+									<m:ObjectAttribute title="" text="chart"/>
+									</ux:blocks>
+								</ux:ObjectPageSubSection>
+						</ux:subSections>
+						
+						</ux:ObjectPageSection>
+						
+						<ux:ObjectPageSection titleUppercase="false" title="Grafik 2">
+							
+						</ux:ObjectPageSection>
 						
 						
-						
-						
-		            
-						
+						<ux:ObjectPageSection titleUppercase="false" title="avg. Time spent on learning Global">
+							<ux:subSections>
+								<ux:ObjectPageSubSection titleUppercase="false">
+									<ux:blocks>
+									<!--<blockcolor:BlockBlueT3 id="bbt3"/>-->
+									<m:ObjectAttribute title="" text="chart"/>
+									</ux:blocks>
+							    </ux:ObjectPageSubSection>
+							</ux:subSections>
+						</ux:ObjectPageSection>
+					</ux:sections>
+				</ux:ObjectPageLayout>
+					
 				
 					</content>
 				</Page>

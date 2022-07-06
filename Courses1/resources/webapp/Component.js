@@ -17,8 +17,12 @@ sap.ui.define([
 		 * @override
 		 */
 		init: function () {
+			// icon logo
+			sap.ui.core.IconPool.addIcon("cool", "customfont", "icomoon", "e900");
+			
 			// call the base component's init function
 			UIComponent.prototype.init.apply(this, arguments);
+			
 
 			// enable routing
 			this.getRouter().initialize();

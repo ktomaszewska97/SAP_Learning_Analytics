@@ -4,17 +4,29 @@ xmlns:fb="sap.ui.comp.filterbar"
 xmlns:l="sap.ui.layout"
 xmlns:f="sap.ui.layout.form"
 xmlns:core="sap.ui.core"
+xmlns:u="sap.uxap"
 displayBlock="true" 
-xmlns="sap.m">
+xmlns="sap.m"
+xmlns:m="sap.m"
+>
 	
 	<Shell id="shell">
-		<App id="app">
+		<App id="app" class="myApp">
 			<pages>
 				<!--navigation bar-->
-				<Page id="page" title="Learning Platform Analytics" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer"
-		showNavButton="true">
+				
+				<Page id="page" title="Dashboard" class="sapMShellGlobalOuterBackground sapUiContentPadding sapUiResponsivePadding--header 
+				sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer"
+				showNavButton="false"
+				>
+	
 					<!--menu button-->
+					
 					<headerContent>
+						<!--logo added-->
+						<core:Icon src="sap-icon://customfont/cool" size="20px"></core:Icon>
+						<HBox>
+						<!--menu button-->
 						<MenuButton text="Menu">
 							<menu>
 									<Menu>
@@ -29,6 +41,8 @@ xmlns="sap.m">
 								</Menu>
 							</menu>
 						</MenuButton>
+						</HBox>
+						
 					</headerContent>
 					
 					
@@ -42,7 +56,8 @@ xmlns="sap.m">
 					<!--filter apply	-->
 					<l:VerticalLayout width="100%">
 						<!--<Label text="Filters"/>-->
-						<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true">
+						<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true" title="Filters:">
+							
 							<fb:filterGroupItems>
 								
 								<!--company selection-->
@@ -72,23 +87,21 @@ xmlns="sap.m">
 								    </fb:control>
 								</fb:FilterGroupItem>
 								
-								
-	
 								<!--team selection-->
-								<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="team" label="Team" labelTooltip="Tooltip GroupItem Example">
+								<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="team" label="Team" visibleInFilterBar="true">
 									<fb:control>
 										<ComboBox type="Text">
 											<items>
-												<core:Item key="t1" text="Team 1"/>
-												<core:Item key="t2" text="Team 2"/>
-												<core:Item key="t3" text="Team 3"/>
+												<core:Item key="t1" text="team 1"/>
+												<core:Item key="t2" text="team 2"/>
+												<core:Item key="t3" text="team 3"/>
 											</items>
 										</ComboBox>
 					                </fb:control>
 				                </fb:FilterGroupItem>
 				                
 				                <!--date-->
-				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="date" label="Date Range" labelTooltip="Tooltip GroupItem Example">
+				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="date" label="Date Range"  visibleInFilterBar="true">
 									<fb:control>
 										<!--date range selection-->
 									<Label labelFor="DRS2"/>
@@ -115,22 +128,56 @@ xmlns="sap.m">
 					
 						
 					</l:Grid>
-					<!--<VBox class="sapUiSmallMargin">-->
-					<!--	<f:SimpleForm id="SimpleFormChangeColumn_oneGroup234" editable="true" layout="ColumnLayout"-->
-					<!--	columnsM="3"-->
-					<!--	columnsL="3"-->
-					<!--	columnsXL="3"-->
-					<!--	>-->
-					<!--	<f:content>-->
-							
-					<!--			<Text text="Total num. of users: 129"  />-->
-					<!--			<Text text="Total num. of courses: 89"   />-->
-					<!--			<Text text="Never logged in: 17"  />-->
-			
-					<!--	</f:content>-->
-					<!--	</f:SimpleForm>-->
-					<!--</VBox>-->
 					
+					<!--sections-->
+					<u:ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+					<u:headerTitle>
+						<u:ObjectPageHeader objectTitle="Statistics Visulization">
+						</u:ObjectPageHeader>
+					</u:headerTitle>
+					
+					<u:headerContent>
+						<m:ObjectAttribute title="" text="charts"/>
+					</u:headerContent>
+					
+					<u:sections>
+						<u:ObjectPageSection titleUppercase="false" title="Important KPIs">
+							
+						<u:subSections>
+								<u:ObjectPageSubSection title="TOP Users Global" titleUppercase="false">
+									<u:blocks>
+									<m:ObjectAttribute title="" text="chart"/>	
+									<!--	<blockcolor:BlockBlueT1 id="bbt1"/>-->
+									</u:blocks>
+								</u:ObjectPageSubSection>
+								
+								<u:ObjectPageSubSection title="TOP Courses Global" titleUppercase="false">
+									<u:blocks>
+									<!--	<blockcolor:BlockBlueT2 id="bbt2"/>-->
+									<m:ObjectAttribute title="" text="chart"/>
+									</u:blocks>
+								</u:ObjectPageSubSection>
+						</u:subSections>
+						
+						</u:ObjectPageSection>
+						
+						<u:ObjectPageSection titleUppercase="false" title="Grafik 2">
+							
+						</u:ObjectPageSection>
+						
+						
+						<u:ObjectPageSection titleUppercase="false" title="avg. Time spent on learning Global">
+							<u:subSections>
+								<u:ObjectPageSubSection titleUppercase="false">
+									<u:blocks>
+									<!--<blockcolor:BlockBlueT3 id="bbt3"/>-->
+									<m:ObjectAttribute title="" text="chart"/>
+									</u:blocks>
+							    </u:ObjectPageSubSection>
+							</u:subSections>
+						</u:ObjectPageSection>
+					</u:sections>
+				</u:ObjectPageLayout>
 					
 					
 						
@@ -140,5 +187,4 @@ xmlns="sap.m">
 		</App>
 	</Shell>
 </mvc:View>
-
 

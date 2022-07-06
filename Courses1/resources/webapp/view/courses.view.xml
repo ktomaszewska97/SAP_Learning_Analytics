@@ -4,20 +4,29 @@ xmlns:fb="sap.ui.comp.filterbar"
 xmlns:l="sap.ui.layout"
 xmlns:f="sap.ui.layout.form"
 xmlns:core="sap.ui.core"
+xmlns:ux="sap.uxap"
+xmlns:m="sap.m"
 displayBlock="true" 
 xmlns="sap.m">
 	
 	<Shell id="shell">
-		<App id="app">
+		<!--myApp comes from the style.css-->
+		<App id="app" class="myApp">
 			<pages>
 				<!--navigation bar-->
-				<Page id="courses" title="Courses" class="sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer"
-		showNavButton="true">
-					<!--menu button-->
+				<Page id="courses" title="Courses" class="sapMShellGlobalOuterBackground sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer"
+		showNavButton="false">
+					
+				<!--menu button-->
+					
 					<headerContent>
+						<!--logo added-->
+						<core:Icon src="sap-icon://customfont/cool" size="20px"></core:Icon>
+						<HBox>
+						<!--menu button-->
 						<MenuButton text="Menu">
 							<menu>
-								<Menu>
+									<Menu>
 									<MenuItem text="Dashboard" press="onPressDashboard"></MenuItem>
 									<MenuItem text="Learning History" press="onPressHistory" />
 									<MenuItem text="People Overview" press="onPressPeople"/>
@@ -27,9 +36,10 @@ xmlns="sap.m">
 									<MenuItem text="Test Single Person" press="onPressSinglePerson"/>
 									
 								</Menu>
-								
 							</menu>
 						</MenuButton>
+						</HBox>
+						
 					</headerContent>
 					
 					
@@ -118,10 +128,63 @@ xmlns="sap.m">
 						</fb:FilterBar>
 						
 					</l:VerticalLayout>
+					
+					<!--sections-->
+					<ux:ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+					<ux:headerTitle>
+						<ux:ObjectPageHeader objectTitle="Statistics Visulization">
+						</ux:ObjectPageHeader>
+					</ux:headerTitle>
+					
+					<ux:headerContent>
+						<m:ObjectAttribute title="" text="charts"/>
+					</ux:headerContent>
+					
+					<ux:sections>
+						<ux:ObjectPageSection titleUppercase="false" title="Important KPIs">
+							
+						<ux:subSections>
+								<ux:ObjectPageSubSection title="TOP Users Global" titleUppercase="false">
+									<ux:blocks>
+									<m:ObjectAttribute title="" text="chart"/>	
+									<!--	<blockcolor:BlockBlueT1 id="bbt1"/>-->
+									</ux:blocks>
+								</ux:ObjectPageSubSection>
+								
+								<ux:ObjectPageSubSection title="TOP Courses Global" titleUppercase="false">
+									<ux:blocks>
+									<!--	<blockcolor:BlockBlueT2 id="bbt2"/>-->
+									<m:ObjectAttribute title="" text="chart"/>
+									</ux:blocks>
+								</ux:ObjectPageSubSection>
+						</ux:subSections>
+						
+						</ux:ObjectPageSection>
+						
+						<ux:ObjectPageSection titleUppercase="false" title="Grafik 2">
+							
+						</ux:ObjectPageSection>
+						
+						
+						<ux:ObjectPageSection titleUppercase="false" title="avg. Time spent on learning Global">
+							<ux:subSections>
+								<ux:ObjectPageSubSection titleUppercase="false">
+									<ux:blocks>
+									<!--<blockcolor:BlockBlueT3 id="bbt3"/>-->
+									<m:ObjectAttribute title="" text="chart"/>
+									</ux:blocks>
+							    </ux:ObjectPageSubSection>
+							</ux:subSections>
+						</ux:ObjectPageSection>
+					</ux:sections>
+				</ux:ObjectPageLayout>
+					
+					<!--table-->
 				    <Toolbar>
 					<Title level="H3" text="Table of Courses:" />
 					<ToolbarSpacer />
 				    </Toolbar>
+				    
 				    <SearchField width="95%" class="sapUiSmallMargin" />
 						<Table id="coursesTable"
 							items="{/ProductCollection}"
@@ -163,5 +226,7 @@ xmlns="sap.m">
 		</App>
 	</Shell>
 </mvc:View>
+
+
 
 
