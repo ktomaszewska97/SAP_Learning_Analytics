@@ -1,5 +1,21 @@
 {
 	"welcomeFile": "webapp/index.html",
-	"authenticationMethod": "none",
-	"routes": []
+	"authenticationMethod": "route",
+	"routes": [
+		{
+			"source":"(.*)(xsjs)",
+			"destination":"datajs_api",
+			"csrfProtection":false,
+			"authenticationType":"xsuaa"
+			
+		},{
+			"source":"(.*)(.xsodata)",
+			"destination":"datajs_api",
+			"authenticationType":"xsuaa"
+		},{ 
+			"source": "^/user.xsodata/.*$", 
+			"destination": "datajs_api" 
+			
+		}
+		]
 }

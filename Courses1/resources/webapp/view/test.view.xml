@@ -1,0 +1,121 @@
+<mvc:View controllerName="test.Courses1.controller.courses"
+xmlns:mvc="sap.ui.core.mvc"
+displayBlock="true" 
+xmlns="sap.m"
+xmlns:core="sap.ui.core"
+xmlns:fb="sap.ui.comp.filterbar"
+xmlns:l="sap.ui.layout">
+	
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<!--navigation bar-->
+				<Page id="courses" title="Courses" 	showNavButton="false">
+				<!--menu button-->
+					<headerContent>
+						<HBox>
+						<!--menu button-->
+						<MenuButton text="Menu">
+							<menu>
+									<Menu>
+									<MenuItem text="Dashboard" press="onPressDashboard"></MenuItem>
+									<MenuItem text="Learning History" press="onPressHistory" />
+									<MenuItem text="People Overview" press="onPressPeople"/>
+									<MenuItem text="Courses Overview" press="onPressCourses" />
+								</Menu>
+							</menu>
+						</MenuButton>
+						</HBox>
+					</headerContent>
+						<content>
+					<!--subtitle-->
+					
+					<!--filter apply	-->
+					<l:VerticalLayout width="100%">
+						<!--<Label text="Filters"/>-->
+						<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true" title="Filters:">
+							<fb:filterGroupItems>
+								<!--LP selection-->
+								<fb:FilterGroupItem groupName="__$INTERNAL$" name="LP" label="Learning Platform" visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="udemy" text="Udemy"/>
+												<core:Item key="litmos" text="SAP Litmos"/>
+												
+											</items>
+										</ComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+									<!--course category selection-->
+								<fb:FilterGroupItem groupName="__$INTERNAL$" name="cc" label="Course Category" visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="marketing" text="Marketing"/>
+												<core:Item key="hr" text="Soft Skills"/>
+												<core:Item key="it" text="IT"/>
+											</items>
+										</ComboBox>
+									
+								    </fb:control>
+								</fb:FilterGroupItem>
+								
+	
+								<!--rating selection-->
+								<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="rating" label="Rating" visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="t1" text=">4,5"/>
+												<core:Item key="t2" text=">4"/>
+												<core:Item key="t3" text=">3,5"/>
+											</items>
+										</ComboBox>
+					                </fb:control>
+				                </fb:FilterGroupItem>
+				                <!--level selection-->
+				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="level" label="Level" visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="t1" text="Beginner"/>
+												<core:Item key="t2" text="Intermediate"/>
+												<core:Item key="t1" text="Expert"/>
+											</items>
+										</ComboBox>
+					                </fb:control>
+				                </fb:FilterGroupItem>
+				                <!--compliance selection-->
+				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="compliance" label="Compliance" visibleInFilterBar="true">
+									<fb:control>
+										<ComboBox type="Text">
+											<items>
+												<core:Item key="t1" text="yes"/>
+												<core:Item key="t2" text="no"/>
+											</items>
+										</ComboBox>
+					                </fb:control>
+				                </fb:FilterGroupItem>
+				                 <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="date" label="Date Range" visibleInFilterBar="true">
+									<fb:control>
+										<!--date range selection-->
+									<Label labelFor="DRS2"/>
+							            <DateRangeSelection id="date"/>
+					                </fb:control>
+				                </fb:FilterGroupItem>
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+						
+					</l:VerticalLayout>
+					<SearchField width="95%" class="sapUiSmallMargin" liveChange=".onFilterPosts"/>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
+
+
+
+

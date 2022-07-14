@@ -9,6 +9,15 @@
 		},
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
+		"dataSources": {
+			"TLURemote": {
+				"uri": "/user.xsodata",
+				"type": "OData",
+				"settings": {
+					"ODataVersion": "2.0"
+				}
+			}
+		},
 		"sourceTemplate": {
 			"id": "hanatemplates.basicSAPUI5ApplicationProject",
 			"version": "0.0.0"
@@ -38,7 +47,7 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "test.Courses1.view.View1",
+			"viewName": "test.Courses1.view.dashboard",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -51,7 +60,9 @@
 				"sap.ushell": {},
 				"sap.collaboration": {},
 				"sap.ui.comp": {},
-				"sap.uxap": {}
+				"sap.uxap": {},
+				"sap.ui.commons":{},
+				"sap.ui.table":{}
 			}
 		},
 		"contentDensities": {
@@ -64,6 +75,19 @@
 				"settings": {
 					"bundleName": "test.Courses1.i18n.i18n"
 				}
+			},
+			"": {
+				"_comment": "Standard Model",
+				"dataSource": "TLURemote",
+				"type": "sap.ui.model.OData.v2.ODataModel",
+				"preload": true,
+				"settings": {
+					"useBatch": false,
+					"json": true,
+					"defaultBindingMode": "TwoWay",
+					"defaultUpdateMethod": "PUT"
+				}
+				
 			}
 		},
 		"resources": {

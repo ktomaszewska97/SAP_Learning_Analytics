@@ -52,8 +52,7 @@ xmlns="sap.m">
 						<!--<Label text="Filters"/>-->
 						<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true" title="Filters:">
 							<fb:filterGroupItems>
-								
-								<!--company selection-->
+								<!--larning platform selection-->
 								<fb:FilterGroupItem groupName="__$INTERNAL$" name="LP" label="Learning Platform" visibleInFilterBar="true">
 									<fb:control>
 										<ComboBox type="Text">
@@ -66,7 +65,7 @@ xmlns="sap.m">
 									</fb:control>
 								</fb:FilterGroupItem>
 								
-								<!--Business Unit-->
+								<!--course category selection-->
 								<fb:FilterGroupItem groupName="__$INTERNAL$" name="cc" label="Course Category" visibleInFilterBar="true">
 									<fb:control>
 										<ComboBox type="Text">
@@ -81,7 +80,7 @@ xmlns="sap.m">
 								</fb:FilterGroupItem>
 								
 	
-								<!--team selection-->
+								<!--rating selection-->
 								<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="rating" label="Rating" visibleInFilterBar="true">
 									<fb:control>
 										<ComboBox type="Text">
@@ -93,7 +92,7 @@ xmlns="sap.m">
 										</ComboBox>
 					                </fb:control>
 				                </fb:FilterGroupItem>
-				                
+				                <!--level selection-->
 				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="level" label="Level" visibleInFilterBar="true">
 									<fb:control>
 										<ComboBox type="Text">
@@ -105,6 +104,7 @@ xmlns="sap.m">
 										</ComboBox>
 					                </fb:control>
 				                </fb:FilterGroupItem>
+				                <!--compliance selection-->
 				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="compliance" label="Compliance" visibleInFilterBar="true">
 									<fb:control>
 										<ComboBox type="Text">
@@ -115,7 +115,7 @@ xmlns="sap.m">
 										</ComboBox>
 					                </fb:control>
 				                </fb:FilterGroupItem>
-				                <!--date-->
+				                <!--date range selection-->
 				                <fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="date" label="Date Range" visibleInFilterBar="true">
 									<fb:control>
 										<!--date range selection-->
@@ -185,9 +185,10 @@ xmlns="sap.m">
 					<ToolbarSpacer />
 				    </Toolbar>
 				    
-				    <SearchField width="95%" class="sapUiSmallMargin" />
-						<Table id="coursesTable"
-							items="{/ProductCollection}"
+				    <SearchField width="95%" liveChange=".onFilterPosts" class="sapUiSmallMargin"/>
+				    <!--table here-->
+						<Table id="copyofuser"
+							items="{/CopyOfuser}"
 							>
 								<columns>
 									<Column id="courseName" width="25%"><Text text="Course" /></Column>
@@ -199,23 +200,16 @@ xmlns="sap.m">
 								    <Column id="avgExamRate" width="10%" demandPopin="true"><Text text="Average Exam Rate" /></Column>
 								</columns>
 								<items>
-									<ColumnListItem
-									type="Active"
-									vAlign="Middle"
-									navigated="{
-									parts: [
-									'settings>/navigatedItem',
-									'ProductId'
-									],
-									formatter: '.isNavigated'
-									}"
-									press="onPress">
+									<ColumnListItem>
 										<cells>
-											<ObjectIdentifier title="{Name}" text="{coursetId}" />
-											<Text text="{SupplierName}" />
-											<Text text="{SupplierName}" />
-											<Text text="{SupplierName}" />
-											<Text text="{Width} x {Depth} x {Height} {DimUnit}" />
+											<!--<ObjectIdentifier title="{copyofuser}" text="{copyofuser}" />-->
+											<Text text="{email_address}" />
+											<Text text="{email_address}" />
+											<Text text="{email_address}" />
+											<Text text="{email_address}" />
+											<Text text="{email_address}" />
+											<Text text="{email_address}" />
+											<!--<Text text="{Width} x {Depth} x {Height} {DimUnit}" />-->
 										</cells>
 									</ColumnListItem>
 								</items>

@@ -1,0 +1,6 @@
+service { 
+	"user" as "user" keys generate local "ID";
+	"CopyOfuser" as "copyofuser" keys generate local "ID";
+	
+	
+}

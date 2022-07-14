@@ -8,7 +8,8 @@ var port  = process.env.PORT || 3000;
 var options = {
 	anonymous : true, // remove to authenticate calls
 	auditLog : { logToConsole: true }, // change to auditlog service for productive scenarios
-	redirectUrl : "/index.xsjs"
+	// redirectUrl : "/index.xsjs"
+	redirectUrl : "user.xsodata/copyofuser?$top=5&$format=json"
 };
 
 // configure HANA
@@ -17,6 +18,7 @@ try {
 } catch (err) {
 	console.log("[WARN]", err.message);
 }
+
 
 //configure UAA
 try {

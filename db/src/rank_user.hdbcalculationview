@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="rank_user" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="rank_user"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="user">
+    <resourceUri>user</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1">
+    <viewAttributes>
+      <viewAttribute id="user_name"/>
+      <viewAttribute id="user_surname"/>
+      <viewAttribute id="user_role"/>
+      <viewAttribute id="user_joined_date"/>
+      <viewAttribute id="user_external_id"/>
+      <viewAttribute id="user_is_deactivated"/>
+      <viewAttribute id="num_new_enrolled_courses"/>
+      <viewAttribute id="num_new_stared_courses"/>
+      <viewAttribute id="num_new_assigned_courses"/>
+      <viewAttribute id="num_completed_courses"/>
+      <viewAttribute id="num_completed_quizzes"/>
+      <viewAttribute id="num_completed_lectures"/>
+      <viewAttribute id="num_video_consumed_minutes"/>
+      <viewAttribute id="num_web_visited_days"/>
+      <viewAttribute id="last_date_visit"/>
+      <viewAttribute id="email_address"/>
+      <viewAttribute id="course_id"/>
+      <viewAttribute id="course_start_time"/>
+      <viewAttribute id="course_completion_time"/>
+      <viewAttribute id="course_category"/>
+      <viewAttribute id="course_duration"/>
+      <viewAttribute id="completion_ratio"/>
+      <viewAttribute id="course_enroll_date"/>
+      <viewAttribute id="course_first_completion_date"/>
+      <viewAttribute id="course_last_completion_date"/>
+      <viewAttribute id="is_assigned"/>
+      <viewAttribute id="assigned_by"/>
+      <viewAttribute id="course_name"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="user"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:RankView" id="Rank_1">
+    <viewAttributes>
+      <viewAttribute id="user_name"/>
+      <viewAttribute id="user_surname"/>
+      <viewAttribute id="user_role"/>
+      <viewAttribute id="user_joined_date"/>
+      <viewAttribute id="user_external_id"/>
+      <viewAttribute id="user_is_deactivated"/>
+      <viewAttribute id="num_new_enrolled_courses" aggregationType="sum"/>
+      <viewAttribute id="num_new_stared_courses" aggregationType="sum"/>
+      <viewAttribute id="num_new_assigned_courses" aggregationType="sum"/>
+      <viewAttribute id="num_completed_courses" aggregationType="sum"/>
+      <viewAttribute id="num_completed_quizzes" aggregationType="sum"/>
+      <viewAttribute id="num_completed_lectures" aggregationType="sum"/>
+      <viewAttribute id="num_video_consumed_minutes" aggregationType="sum"/>
+      <viewAttribute id="num_web_visited_days" aggregationType="sum"/>
+      <viewAttribute id="last_date_visit"/>
+      <viewAttribute id="email_address"/>
+      <viewAttribute id="course_id"/>
+      <viewAttribute id="course_start_time"/>
+      <viewAttribute id="course_completion_time"/>
+      <viewAttribute id="course_category"/>
+      <viewAttribute id="course_duration" aggregationType="sum"/>
+      <viewAttribute id="completion_ratio" aggregationType="sum"/>
+      <viewAttribute id="course_enroll_date"/>
+      <viewAttribute id="course_first_completion_date"/>
+      <viewAttribute id="course_last_completion_date"/>
+      <viewAttribute id="is_assigned"/>
+      <viewAttribute id="assigned_by"/>
+      <viewAttribute id="course_name"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="Projection_1"/>
+    <rankingFilter type="RANK" offset="0" offsetReference="FRONT" dynamicPartitionAttributes="false">
+      <order byViewAttributeName="num_completed_courses" direction="DESC"/>
+      <rankThreshold/>
+    </rankingFilter>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Rank_1">
+  <attributes>
+    <attribute id="user_name" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_name"/>
+      <keyMapping columnObjectName="Rank_1" columnName="user_name"/>
+    </attribute>
+    <attribute id="user_surname" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_surname"/>
+      <keyMapping columnObjectName="Rank_1" columnName="user_surname"/>
+    </attribute>
+    <attribute id="user_role" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_role"/>
+      <keyMapping columnObjectName="Rank_1" columnName="user_role"/>
+    </attribute>
+    <attribute id="user_joined_date" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_joined_date"/>
+      <keyMapping columnObjectName="Rank_1" columnName="user_joined_date"/>
+    </attribute>
+    <attribute id="user_external_id" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_external_id"/>
+      <keyMapping columnObjectName="Rank_1" columnName="user_external_id"/>
+    </attribute>
+    <attribute id="user_is_deactivated" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_is_deactivated"/>
+      <keyMapping columnObjectName="Rank_1" columnName="user_is_deactivated"/>
+    </attribute>
+    <attribute id="last_date_visit" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="last_date_visit"/>
+      <keyMapping columnObjectName="Rank_1" columnName="last_date_visit"/>
+    </attribute>
+    <attribute id="email_address" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="email_address"/>
+      <keyMapping columnObjectName="Rank_1" columnName="email_address"/>
+    </attribute>
+    <attribute id="course_id" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_id"/>
+      <keyMapping columnObjectName="Rank_1" columnName="course_id"/>
+    </attribute>
+    <attribute id="course_start_time" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_start_time"/>
+      <keyMapping columnObjectName="Rank_1" columnName="course_start_time"/>
+    </attribute>
+    <attribute id="course_completion_time" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_completion_time"/>
+      <keyMapping columnObjectName="Rank_1" columnName="course_completion_time"/>
+    </attribute>
+    <attribute id="course_category" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_category"/>
+      <keyMapping columnObjectName="Rank_1" columnName="course_category"/>
+    </attribute>
+    <attribute id="course_enroll_date" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_enroll_date"/>
+      <keyMapping columnObjectName="Rank_1" columnName="course_enroll_date"/>
+    </attribute>
+    <attribute id="course_first_completion_date" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_first_completion_date"/>
+      <keyMapping columnObjectName="Rank_1" columnName="course_first_completion_date"/>
+    </attribute>
+    <attribute id="course_last_completion_date" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_last_completion_date"/>
+      <keyMapping columnObjectName="Rank_1" columnName="course_last_completion_date"/>
+    </attribute>
+    <attribute id="is_assigned" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="is_assigned"/>
+      <keyMapping columnObjectName="Rank_1" columnName="is_assigned"/>
+    </attribute>
+    <attribute id="assigned_by" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="assigned_by"/>
+      <keyMapping columnObjectName="Rank_1" columnName="assigned_by"/>
+    </attribute>
+    <attribute id="course_name" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_name"/>
+      <keyMapping columnObjectName="Rank_1" columnName="course_name"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="num_new_enrolled_courses" order="7" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_new_enrolled_courses"/>
+      <measureMapping columnObjectName="Rank_1" columnName="num_new_enrolled_courses"/>
+    </measure>
+    <measure id="num_new_stared_courses" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_new_stared_courses"/>
+      <measureMapping columnObjectName="Rank_1" columnName="num_new_stared_courses"/>
+    </measure>
+    <measure id="num_new_assigned_courses" order="9" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_new_assigned_courses"/>
+      <measureMapping columnObjectName="Rank_1" columnName="num_new_assigned_courses"/>
+    </measure>
+    <measure id="num_completed_courses" order="10" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_completed_courses"/>
+      <measureMapping columnObjectName="Rank_1" columnName="num_completed_courses"/>
+    </measure>
+    <measure id="num_completed_quizzes" order="11" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_completed_quizzes"/>
+      <measureMapping columnObjectName="Rank_1" columnName="num_completed_quizzes"/>
+    </measure>
+    <measure id="num_completed_lectures" order="12" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_completed_lectures"/>
+      <measureMapping columnObjectName="Rank_1" columnName="num_completed_lectures"/>
+    </measure>
+    <measure id="num_video_consumed_minutes" order="13" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_video_consumed_minutes"/>
+      <measureMapping columnObjectName="Rank_1" columnName="num_video_consumed_minutes"/>
+    </measure>
+    <measure id="num_web_visited_days" order="14" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_web_visited_days"/>
+      <measureMapping columnObjectName="Rank_1" columnName="num_web_visited_days"/>
+    </measure>
+    <measure id="course_duration" order="21" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="course_duration"/>
+      <measureMapping columnObjectName="Rank_1" columnName="course_duration"/>
+    </measure>
+    <measure id="completion_ratio" order="22" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="completion_ratio"/>
+      <measureMapping columnObjectName="Rank_1" columnName="completion_ratio"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="322"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Rank_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="217"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -15,16 +15,25 @@ modules:
   - name: Courses1
     type: html5
     path: Courses1
-
+    requires:
+      - name: datajs_api
+        group: destinations
+        properties:
+          name: datajs_api
+          url: '~{url}'
+          forwardAuthToken: true
+      - name: UUA-service
   - name: datajs
     type: nodejs
     path: datajs
+    requires:
+      - name: hdi_db
+      - name: UUA-service
+      - name: db
     provides:
-     - name: datajs_api
-       properties:
-          url: ${default-url}
-     
-
+      - name: datajs_api
+        properties:
+          url: '${default-url}'
 resources:
   - name: UUA-service
     type: com.sap.xs.uaa-space

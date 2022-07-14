@@ -12,16 +12,22 @@ xmlns="sap.m">
 	<Shell id="shell">
 		<App id="app" class="myApp">
 			<pages>
+
+<!--Section 1 Header 
+Function 1.1 Title-->
 				<!--navigation bar-->
-				<Page id="page" title="Employees" class="sapMShellGlobalOuterBackground sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer"
+				<Page id="employees" title="Employees" class="sapMShellGlobalOuterBackground sapUiContentPadding sapUiResponsivePadding--header sapUiResponsivePadding--subHeader sapUiResponsivePadding--content sapUiResponsivePadding--footer"
 		showNavButton="false">
-					<!--menu button-->
+				
 					
 					<headerContent>
+<!--Function 1.2 Logo-->
 						<!--logo added-->
 						<core:Icon src="sap-icon://customfont/cool" size="20px"></core:Icon>
 						<HBox>
 						<!--menu button-->
+						
+<!--Function 1.3 Menu-->
 						<MenuButton text="Menu">
 							<menu>
 									<Menu>
@@ -41,7 +47,7 @@ xmlns="sap.m">
 					</headerContent>
 					
 					
-					
+<!--Section 2 Content-->	
 					<content>
 					<!--subtitle-->
 				
@@ -49,6 +55,7 @@ xmlns="sap.m">
 					
 					<!--filter apply	-->
 					<l:VerticalLayout width="100%">
+<!--Function 2.1 Filterbar-->
 						<!--<Label text="Filters"/>-->
 						<fb:FilterBar reset="onReset" search="onSearch" showRestoreButton="true" showClearButton="true" title="Filters:">
 							<fb:filterGroupItems>
@@ -117,7 +124,7 @@ xmlns="sap.m">
 						</fb:FilterBar>
 						
 					</l:VerticalLayout>
-					
+<!--Function 2.2 Sections-->	
 					<!--sections-->
 					<ux:ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
 					<ux:headerTitle>
@@ -173,7 +180,9 @@ xmlns="sap.m">
 					<Title level="H3" text="Table of Employees:" />
 					<ToolbarSpacer />
 				    </Toolbar>
+<!--Function 2.3 Searchbar-->
 				    <SearchField width="95%" class="sapUiSmallMargin" />
+		<!--Function 2.4 Table-->
 						<Table id="employeesTable"
 							items="{/ProductCollection}"
 							>

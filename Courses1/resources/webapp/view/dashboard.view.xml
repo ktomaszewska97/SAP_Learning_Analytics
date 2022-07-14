@@ -8,8 +8,9 @@ xmlns:u="sap.uxap"
 displayBlock="true" 
 xmlns="sap.m"
 xmlns:m="sap.m"
+xmlns:o="sap.ui.model.odata.v2.ODataModel"
 >
-	
+
 	<Shell id="shell">
 		<App id="app" class="myApp">
 			<pages>

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="user" applyPrivilegeType="NONE" dataCategory="CUBE" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="user"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="myModel.Litmos">
+    <resourceUri>myModel.Litmos</resourceUri>
+  </DataSource>
+  <DataSource id="myModel.Udemy">
+    <resourceUri>myModel.Udemy</resourceUri>
+  </DataSource>
+  <DataSource id="myModel.User_Course">
+    <resourceUri>myModel.User_Course</resourceUri>
+  </DataSource>
+  <DataSource id="myModel.Course">
+    <resourceUri>myModel.Course</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="user" cardinality="CN_N" joinType="fullOuter">
+    <viewAttributes>
+      <viewAttribute id="email_address"/>
+      <viewAttribute id="user_name"/>
+      <viewAttribute id="user_surname"/>
+      <viewAttribute id="user_role"/>
+      <viewAttribute id="job_title"/>
+      <viewAttribute id="country"/>
+      <viewAttribute id="company_name"/>
+      <viewAttribute id="user_joined_date"/>
+      <viewAttribute id="user_external_id"/>
+      <viewAttribute id="user_is_deactivated"/>
+      <viewAttribute id="user_name_1"/>
+      <viewAttribute id="user_surname_1"/>
+      <viewAttribute id="user_role_1"/>
+      <viewAttribute id="user_joined_date_1"/>
+      <viewAttribute id="user_external_id_1"/>
+      <viewAttribute id="user_is_deactivated_1"/>
+      <viewAttribute id="num_new_enrolled_courses"/>
+      <viewAttribute id="num_new_stared_courses"/>
+      <viewAttribute id="num_new_assigned_courses"/>
+      <viewAttribute id="num_completed_courses"/>
+      <viewAttribute id="num_completed_quizzes"/>
+      <viewAttribute id="num_completed_lectures"/>
+      <viewAttribute id="num_video_consumed_minutes"/>
+      <viewAttribute id="num_web_visited_days"/>
+      <viewAttribute id="last_date_visit"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="myModel.Litmos">
+      <mapping xsi:type="Calculation:AttributeMapping" target="email_address" source="email_address"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_name" source="user_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_surname" source="user_surname"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_role" source="user_role"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="job_title" source="job_title"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="country" source="country"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="company_name" source="company_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_joined_date" source="user_joined_date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_external_id" source="user_external_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_is_deactivated" source="user_is_deactivated"/>
+    </input>
+    <input node="myModel.Udemy">
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_name_1" source="user_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_surname_1" source="user_surname"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_role_1" source="user_role"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_joined_date_1" source="user_joined_date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_external_id_1" source="user_external_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_is_deactivated_1" source="user_is_deactivated"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_new_enrolled_courses" source="num_new_enrolled_courses"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_new_stared_courses" source="num_new_stared_courses"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_new_assigned_courses" source="num_new_assigned_courses"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_completed_courses" source="num_completed_courses"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_completed_quizzes" source="num_completed_quizzes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_completed_lectures" source="num_completed_lectures"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_video_consumed_minutes" source="num_video_consumed_minutes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_web_visited_days" source="num_web_visited_days"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="last_date_visit" source="last_date_visit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="email_address" source="email_address"/>
+    </input>
+    <joinAttribute name="email_address"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="user_matching" cardinality="CN_N" joinType="fullOuter">
+    <viewAttributes>
+      <viewAttribute id="Course_User_Course_course_id"/>
+      <viewAttribute id="email_address"/>
+      <viewAttribute id="user_name"/>
+      <viewAttribute id="user_surname"/>
+      <viewAttribute id="user_role"/>
+      <viewAttribute id="job_title"/>
+      <viewAttribute id="country"/>
+      <viewAttribute id="company_name"/>
+      <viewAttribute id="user_joined_date"/>
+      <viewAttribute id="user_external_id"/>
+      <viewAttribute id="user_is_deactivated"/>
+      <viewAttribute id="user_name_1"/>
+      <viewAttribute id="user_surname_1"/>
+      <viewAttribute id="user_role_1"/>
+      <viewAttribute id="user_joined_date_1"/>
+      <viewAttribute id="user_external_id_1"/>
+      <viewAttribute id="user_is_deactivated_1"/>
+      <viewAttribute id="num_new_enrolled_courses" aggregationType="sum"/>
+      <viewAttribute id="num_new_stared_courses" aggregationType="sum"/>
+      <viewAttribute id="num_new_assigned_courses" aggregationType="sum"/>
+      <viewAttribute id="num_completed_courses" aggregationType="sum"/>
+      <viewAttribute id="num_completed_quizzes" aggregationType="sum"/>
+      <viewAttribute id="num_completed_lectures" aggregationType="sum"/>
+      <viewAttribute id="num_video_consumed_minutes" aggregationType="sum"/>
+      <viewAttribute id="num_web_visited_days" aggregationType="sum"/>
+      <viewAttribute id="last_date_visit"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="user">
+      <mapping xsi:type="Calculation:AttributeMapping" target="email_address" source="email_address"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_name" source="user_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_surname" source="user_surname"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_role" source="user_role"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="job_title" source="job_title"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="country" source="country"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="company_name" source="company_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_joined_date" source="user_joined_date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_external_id" source="user_external_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_is_deactivated" source="user_is_deactivated"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_name_1" source="user_name_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_surname_1" source="user_surname_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_role_1" source="user_role_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_joined_date_1" source="user_joined_date_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_external_id_1" source="user_external_id_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_is_deactivated_1" source="user_is_deactivated_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_new_enrolled_courses" source="num_new_enrolled_courses"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_new_stared_courses" source="num_new_stared_courses"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_new_assigned_courses" source="num_new_assigned_courses"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_completed_courses" source="num_completed_courses"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_completed_quizzes" source="num_completed_quizzes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_completed_lectures" source="num_completed_lectures"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_video_consumed_minutes" source="num_video_consumed_minutes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_web_visited_days" source="num_web_visited_days"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="last_date_visit" source="last_date_visit"/>
+    </input>
+    <input node="myModel.User_Course">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Course_User_Course_course_id" source="Course_User_Course.course_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="email_address" source="User_User_Course.email_address"/>
+    </input>
+    <joinAttribute name="email_address"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="userdata" cardinality="CN_N" joinType="fullOuter">
+    <viewAttributes>
+      <viewAttribute id="Course_User_Course_course_id"/>
+      <viewAttribute id="email_address"/>
+      <viewAttribute id="user_name"/>
+      <viewAttribute id="user_surname"/>
+      <viewAttribute id="user_role"/>
+      <viewAttribute id="job_title"/>
+      <viewAttribute id="country"/>
+      <viewAttribute id="company_name"/>
+      <viewAttribute id="user_joined_date"/>
+      <viewAttribute id="user_external_id"/>
+      <viewAttribute id="user_is_deactivated"/>
+      <viewAttribute id="user_name_1"/>
+      <viewAttribute id="user_surname_1"/>
+      <viewAttribute id="user_role_1"/>
+      <viewAttribute id="user_joined_date_1"/>
+      <viewAttribute id="user_external_id_1"/>
+      <viewAttribute id="user_is_deactivated_1"/>
+      <viewAttribute id="num_new_enrolled_courses" aggregationType="sum"/>
+      <viewAttribute id="num_new_stared_courses" aggregationType="sum"/>
+      <viewAttribute id="num_new_assigned_courses" aggregationType="sum"/>
+      <viewAttribute id="num_completed_courses" aggregationType="sum"/>
+      <viewAttribute id="num_completed_quizzes" aggregationType="sum"/>
+      <viewAttribute id="num_completed_lectures" aggregationType="sum"/>
+      <viewAttribute id="num_video_consumed_minutes" aggregationType="sum"/>
+      <viewAttribute id="num_web_visited_days" aggregationType="sum"/>
+      <viewAttribute id="last_date_visit"/>
+      <viewAttribute id="course_id"/>
+      <viewAttribute id="course_start_time"/>
+      <viewAttribute id="course_completion_time"/>
+      <viewAttribute id="course_category"/>
+      <viewAttribute id="course_duration" aggregationType="sum"/>
+      <viewAttribute id="completion_ratio" aggregationType="sum"/>
+      <viewAttribute id="course_enroll_date"/>
+      <viewAttribute id="course_first_completion_date"/>
+      <viewAttribute id="course_last_completion_date"/>
+      <viewAttribute id="is_assigned"/>
+      <viewAttribute id="assigned_by"/>
+      <viewAttribute id="course_name"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="myModel.Course">
+      <mapping xsi:type="Calculation:AttributeMapping" target="course_id" source="course_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="course_start_time" source="course_start_time"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="course_completion_time" source="course_completion_time"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="course_category" source="course_category"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="course_duration" source="course_duration"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="completion_ratio" source="completion_ratio"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="course_enroll_date" source="course_enroll_date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="course_first_completion_date" source="course_first_completion_date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="course_last_completion_date" source="course_last_completion_date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="is_assigned" source="is_assigned"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="assigned_by" source="assigned_by"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="course_name" source="course_name"/>
+    </input>
+    <input node="user_matching">
+      <mapping xsi:type="Calculation:AttributeMapping" target="Course_User_Course_course_id" source="Course_User_Course_course_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="email_address" source="email_address"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_name" source="user_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_surname" source="user_surname"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_role" source="user_role"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="job_title" source="job_title"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="country" source="country"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="company_name" source="company_name"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_joined_date" source="user_joined_date"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_external_id" source="user_external_id"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_is_deactivated" source="user_is_deactivated"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_name_1" source="user_name_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_surname_1" source="user_surname_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_role_1" source="user_role_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_joined_date_1" source="user_joined_date_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_external_id_1" source="user_external_id_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="user_is_deactivated_1" source="user_is_deactivated_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_new_enrolled_courses" source="num_new_enrolled_courses"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_new_stared_courses" source="num_new_stared_courses"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_new_assigned_courses" source="num_new_assigned_courses"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_completed_courses" source="num_completed_courses"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_completed_quizzes" source="num_completed_quizzes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_completed_lectures" source="num_completed_lectures"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_video_consumed_minutes" source="num_video_consumed_minutes"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="num_web_visited_days" source="num_web_visited_days"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="last_date_visit" source="last_date_visit"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="course_id" source="Course_User_Course_course_id"/>
+    </input>
+    <joinAttribute name="course_id"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="userdata">
+  <attributes>
+    <attribute id="Course_User_Course_course_id" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Course_User_Course_course_id"/>
+      <keyMapping columnObjectName="userdata" columnName="Course_User_Course_course_id"/>
+    </attribute>
+    <attribute id="email_address" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="email_address"/>
+      <keyMapping columnObjectName="userdata" columnName="email_address"/>
+    </attribute>
+    <attribute id="user_name" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_name"/>
+      <keyMapping columnObjectName="userdata" columnName="user_name"/>
+    </attribute>
+    <attribute id="user_surname" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_surname"/>
+      <keyMapping columnObjectName="userdata" columnName="user_surname"/>
+    </attribute>
+    <attribute id="user_role" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_role"/>
+      <keyMapping columnObjectName="userdata" columnName="user_role"/>
+    </attribute>
+    <attribute id="job_title" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="job_title"/>
+      <keyMapping columnObjectName="userdata" columnName="job_title"/>
+    </attribute>
+    <attribute id="country" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="country"/>
+      <keyMapping columnObjectName="userdata" columnName="country"/>
+    </attribute>
+    <attribute id="company_name" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="company_name"/>
+      <keyMapping columnObjectName="userdata" columnName="company_name"/>
+    </attribute>
+    <attribute id="user_joined_date" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_joined_date"/>
+      <keyMapping columnObjectName="userdata" columnName="user_joined_date"/>
+    </attribute>
+    <attribute id="user_external_id" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_external_id"/>
+      <keyMapping columnObjectName="userdata" columnName="user_external_id"/>
+    </attribute>
+    <attribute id="user_name_1" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_name_1"/>
+      <keyMapping columnObjectName="userdata" columnName="user_name_1"/>
+    </attribute>
+    <attribute id="user_surname_1" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_surname_1"/>
+      <keyMapping columnObjectName="userdata" columnName="user_surname_1"/>
+    </attribute>
+    <attribute id="user_role_1" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_role_1"/>
+      <keyMapping columnObjectName="userdata" columnName="user_role_1"/>
+    </attribute>
+    <attribute id="user_joined_date_1" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_joined_date_1"/>
+      <keyMapping columnObjectName="userdata" columnName="user_joined_date_1"/>
+    </attribute>
+    <attribute id="user_external_id_1" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_external_id_1"/>
+      <keyMapping columnObjectName="userdata" columnName="user_external_id_1"/>
+    </attribute>
+    <attribute id="last_date_visit" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="last_date_visit"/>
+      <keyMapping columnObjectName="userdata" columnName="last_date_visit"/>
+    </attribute>
+    <attribute id="course_id" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_id"/>
+      <keyMapping columnObjectName="userdata" columnName="course_id"/>
+    </attribute>
+    <attribute id="course_start_time" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_start_time"/>
+      <keyMapping columnObjectName="userdata" columnName="course_start_time"/>
+    </attribute>
+    <attribute id="course_completion_time" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_completion_time"/>
+      <keyMapping columnObjectName="userdata" columnName="course_completion_time"/>
+    </attribute>
+    <attribute id="course_category" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_category"/>
+      <keyMapping columnObjectName="userdata" columnName="course_category"/>
+    </attribute>
+    <attribute id="course_enroll_date" order="31" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_enroll_date"/>
+      <keyMapping columnObjectName="userdata" columnName="course_enroll_date"/>
+    </attribute>
+    <attribute id="course_first_completion_date" order="32" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_first_completion_date"/>
+      <keyMapping columnObjectName="userdata" columnName="course_first_completion_date"/>
+    </attribute>
+    <attribute id="course_last_completion_date" order="33" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_last_completion_date"/>
+      <keyMapping columnObjectName="userdata" columnName="course_last_completion_date"/>
+    </attribute>
+    <attribute id="assigned_by" order="34" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="assigned_by"/>
+      <keyMapping columnObjectName="userdata" columnName="assigned_by"/>
+    </attribute>
+    <attribute id="course_name" order="35" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="course_name"/>
+      <keyMapping columnObjectName="userdata" columnName="course_name"/>
+    </attribute>
+  
+    <attribute id="is_assigned" order="36" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="is_assigned"/>
+      <keyMapping columnObjectName="userdata" columnName="is_assigned"/>
+    </attribute>
+    <attribute id="user_is_deactivated_1" order="37" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_is_deactivated_1"/>
+      <keyMapping columnObjectName="userdata" columnName="user_is_deactivated_1"/>
+    </attribute>
+    <attribute id="user_is_deactivated" order="38" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user_is_deactivated"/>
+      <keyMapping columnObjectName="userdata" columnName="user_is_deactivated"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="num_new_enrolled_courses" order="16" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_new_enrolled_courses"/>
+      <measureMapping columnObjectName="userdata" columnName="num_new_enrolled_courses"/>
+    </measure>
+    <measure id="num_new_stared_courses" order="17" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_new_stared_courses"/>
+      <measureMapping columnObjectName="userdata" columnName="num_new_stared_courses"/>
+    </measure>
+    <measure id="num_new_assigned_courses" order="18" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_new_assigned_courses"/>
+      <measureMapping columnObjectName="userdata" columnName="num_new_assigned_courses"/>
+    </measure>
+    <measure id="num_completed_courses" order="19" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_completed_courses"/>
+      <measureMapping columnObjectName="userdata" columnName="num_completed_courses"/>
+    </measure>
+    <measure id="num_completed_quizzes" order="20" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_completed_quizzes"/>
+      <measureMapping columnObjectName="userdata" columnName="num_completed_quizzes"/>
+    </measure>
+    <measure id="num_completed_lectures" order="21" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_completed_lectures"/>
+      <measureMapping columnObjectName="userdata" columnName="num_completed_lectures"/>
+    </measure>
+    <measure id="num_video_consumed_minutes" order="22" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_video_consumed_minutes"/>
+      <measureMapping columnObjectName="userdata" columnName="num_video_consumed_minutes"/>
+    </measure>
+    <measure id="num_web_visited_days" order="23" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="num_web_visited_days"/>
+      <measureMapping columnObjectName="userdata" columnName="num_web_visited_days"/>
+    </measure>
+    <measure id="course_duration" order="29" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="course_duration"/>
+      <measureMapping columnObjectName="userdata" columnName="course_duration"/>
+    </measure>
+    <measure id="completion_ratio" order="30" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="completion_ratio"/>
+      <measureMapping columnObjectName="userdata" columnName="completion_ratio"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="user" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="429"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="myModel.Litmos" modelObjectNameSpace="user" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="183"/>
+    </shape>
+    <shape modelObjectName="myModel.Udemy" modelObjectNameSpace="user" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="241"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="user_matching" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="97" y="323"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="user" modelObjectNameSpace="user_matching" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="241"/>
+    </shape>
+    <shape modelObjectName="myModel.User_Course" modelObjectNameSpace="user_matching" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="254"/>
+    </shape>
+    <shape expanded="true" modelObjectName="userdata" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="97" y="202"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="myModel.Course" modelObjectNameSpace="userdata" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="414" y="33"/>
+      <rectangleSize width="229"/>
+    </shape>
+  
+    <shape modelObjectName="user_matching" modelObjectNameSpace="userdata" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="714" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

@@ -1,0 +1,8 @@
+service { 
+	"myModel.Course" as "course";
+	
+	
+}
+
+
+

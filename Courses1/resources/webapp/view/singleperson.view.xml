@@ -42,7 +42,7 @@ xmlns="sap.m">
 					<!--<ToolbarSpacer />-->
 				 <!--   </Toolbar>	-->
 				    
-				    
+				   
 					<content>
 						<!--user profile-->
 					<f:SimpleForm id="SimpleFormDisplay480"
@@ -59,28 +59,30 @@ xmlns="sap.m">
 					emptySpanM="0"
 					columnsL="2"
 					columnsM="2">
+					
 					<f:content>
-						
+					
 						<c:Title text="Personal Information" />
 						<Label text="Business Unit" />
-						<Text text="Finance" />
+						<Text text="{job_title}" />
 						<Label text="Company" />
-						<Text text="msg Germany" />
+						<Text text= "{company_name}"/>
 						<Label text="Team" />
-						<Text text="Food" />
+						<Text text="{}" />
 						<Label text="Hours spent" />
-						<Text text="40" />
+						<Text text="{num_video_consumed_minutes}" />
 						<c:Title text=" " />
 						<Label text="Course assigned" />
-						<Text text="13" />
+						<Text text="{num_new_assigned_courses}" />
 						<Label text="Courses completed" />
-						<Text text="12" />
+						<Text text="{num_completed_courses}" />
 						<Label text="LP assigned" />
-						<Text text="3" />
+						<Text text="{LP_assigned}" />
 						<Label text="LP completed" />
-						<Text text="3" />
+						<Text text="{LP_completed}" />
 						
 					</f:content>
+					
 					<f:layoutData>
 						<FlexItemData shrinkFactor="0" backgroundDesign="Solid" styleClass="sapContrastPlus"/>
 					</f:layoutData>

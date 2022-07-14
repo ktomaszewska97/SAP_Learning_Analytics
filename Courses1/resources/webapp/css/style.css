@@ -1,10 +1,10 @@
 /* Enter your custom styles here */
-.myApp .myCustomText {
-   display: inline-block;
-   font-weight: bold;
-   color:red;
-}
-
+/*.myApp .myCustomText {*/
+/*   display: inline-block;*/
+/*   font-weight: bold;*/
+/*   color:red;*/
+/*}*/
+/*change the background color*/
 .myApp .sapMShellGlobalOuterBackground {
     background-image: none;
     background-color: #f7f7f7;
